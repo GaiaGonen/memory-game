@@ -1,0 +1,35 @@
+/************************************
+* Basic Styles
+************************************/
+
+ol {
+  list-style: none;
+}
+
+
+/***********************************
+* Card Styles
+***********************************/
+
+.card {
+  width: 150px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.back {
+  background-color: blue;
+}
+
+.front {
+  background-color: red;
+}
+
+/***********************************
+* Layout
+***********************************/
+
+#game-board ol {
+  display: grid;
+  grid: 250px 250px 250px 250px / 25% 25% 25% 25%
+}
