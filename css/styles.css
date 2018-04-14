@@ -21,9 +21,21 @@ ol, ul {
   background-color: blue;
 }
 
-.front {
-  background-color: red;
+.front span {
+  display: block;
 }
+
+.back span {
+  display: none;
+}
+
+.card span {
+  width: 100%;
+  height: 100%;
+}
+
+
+
 
 /***********************************
 * Layout

@@ -5,14 +5,15 @@ const cards = document.querySelectorAll('.card');
 for (let card of cards) {
   card.addEventListener('click', function (event) {
     this.classList.toggle('back');
-    this.classList.toggle('front');
+    // this.classList.toggle('front');
   })
 }
 
 
 // Shuffle the deck
 
-let pairs = ["red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue"];
+let pairs = ["red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue",
+             "red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue"];
 
 // A function to randomize ann array (changes the original array)
 // Implementaition of  Durstenfeld shuffle in EMACS6
