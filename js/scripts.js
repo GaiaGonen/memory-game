@@ -1,19 +1,99 @@
-// Click event to toggle between back and front
+//---------------------------------------------------
+//
+// Global Variables to use in the code
+//
+//---------------------------------------------------
 
 const cards = document.querySelectorAll('.card');
+
+const timer = document.getElementById('timer');
+
+const frontSides = document.querySelectorAll('.card span');
+
+// Values that need to be matched. Cards.length should be equal to pairs.length
+let pairs = ["red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue",
+"red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue"];
+
+
+
+//---------------------------------------------------
+//
+// Functions
+//
+//---------------------------------------------------
+
+function startTimer() {
+  let secs = 0;
+  let mins = 0;
+  let hrs = 0;
+  let displaySecs, displayMins, displayHrs;
+  let counter = setInterval( function() {
+    //conditions to make the seconds and minutes to count only to 59 and then add
+    //a minute or an hour respectivley
+    if (secs == 59) {
+      secs = 0;
+      if (mins == 59) {
+        mins = 0;
+        hrs++;
+      } else {
+        mins ++;
+      }
+    } else {
+      secs++;
+    }
+    //conditions to set the display to be 00:00:00 and not 0:0:0
+    if (secs < 10) {
+      displaySecs = '0' + secs;
+    } else {
+      displaySecs = secs;
+    }
+    if (mins < 10) {
+      displayMins = '0' + mins;
+    } else {
+      displayMins = mins;
+    }
+    if (hrs < 10) {
+      displayHrs = '0' + hrs;
+    } else {
+      displayHrs = hrs;
+    }
+    timer.innerHTML = displayHrs + ':' + displayMins + ':' + displaySecs;
+  }, 1000);
+}
+
+
+
+
+
+
+
+//---------------------------------------------------
+//
+// Game Functionality
+//
+//---------------------------------------------------
+
+//TODO game functionality should begin only when pressing 'start game' or 'restart'.
+//consider changing the button's value instead of doing two buttons.
 
 for (let card of cards) {
   card.addEventListener('click', function (event) {
     this.classList.toggle('back');
     this.classList.toggle('front');
   })
-}
+} // A loop to add an event listner (click) on each card
+
+
+
+
+
+
+
+
 
 
 // Shuffle the deck
 
-let pairs = ["red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue",
-             "red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue"];
 
 // A function to randomize ann array (changes the original array)
 // Implementaition of  Durstenfeld shuffle in EMACS6
@@ -29,7 +109,6 @@ function shuffleArray(array) {
 
 shuffleArray(pairs);
 
-const fronts = document.querySelectorAll('.card span');
 
 for (let i=0; i < fronts.length; i++) {
   fronts[i].style.backgroundColor = pairs[i];
@@ -38,42 +117,3 @@ for (let i=0; i < fronts.length; i++) {
 
 
 // TIMER
-
-let secs = 00;
-let mins = 00;
-let hrs = 00;
-let displaySecs, displayMins, displayHrs;
-let counter = setInterval( function() {
-  //conditions to make the seconds and minutes to count only to 59 and then add
-  //a minute or an hour respectivley
-  if (secs == 59) {
-    secs = 0;
-    if (mins == 59) {
-      mins = 0;
-      hrs++;
-    } else {
-      mins ++;
-    }
-  } else {
-    secs++;
-  }
-  //conditions to set the display to be 00:00:00 and not 0:0:0
-  if (secs < 10) {
-    displaySecs = '0' + secs;
-  } else {
-    displaySecs = secs;
-  }
-  if (mins < 10) {
-    displayMins = '0' + mins;
-  } else {
-    displayMins = mins;
-  }
-  if (hrs < 10) {
-    displayHrs = '0' + hrs;
-  } else {
-    displayHrs = hrs;
-  }
-  timer.innerHTML = displayHrs + ':' + displayMins + ':' + displaySecs;
-}, 1000);
-
-const timer = document.getElementById('timer');
