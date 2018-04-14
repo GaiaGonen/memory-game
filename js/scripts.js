@@ -8,7 +8,9 @@ const cards = document.querySelectorAll('.card');
 
 const timer = document.getElementById('timer');
 
-const frontSides = document.querySelectorAll('.card span');
+const cardValue = document.querySelectorAll('.card span');
+
+const fronts = document.querySelectorAll('.front');
 
 // Values that need to be matched. cards.length should be equal to pairs.length
 let pairs = ["red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue",
@@ -73,7 +75,11 @@ function shuffleArray(array) {
   }
 }
 
+function flipCard() {
+    this.classList.toggle('back');
+    this.classList.toggle('front');
 
+}
 
 
 
@@ -91,13 +97,19 @@ function shuffleArray(array) {
 
 // A loop to add an event listner (click) on each card
 for (let card of cards) {
-  card.addEventListener('click', function (event) {
-    this.classList.toggle('back');
-    this.classList.toggle('front');
-  })
+  card.addEventListener('click', flipCard);
 }
 
 // A loop to set the changeable values for the cards after each shuffle
-for (let i=0; i < fronts.length; i++) {
-  fronts[i].style.backgroundColor = pairs[i];
+for (let i=0; i < cardValue.length; i++) {
+  cardValue[i].style.backgroundColor = pairs[i];
+}
+
+// A check to see if two cards are open and act accordingly
+if (fronts.length == 2) {
+  const firstCardValue = fronts[0].style.getPropertyValue(backgroundColor);
+  const secondCardValue = fronts[1].style.getPropertyValue(backgroundColor);
+  if (firstCardValue === secondCardValue) {
+    fronts[0]
+  }
 }
