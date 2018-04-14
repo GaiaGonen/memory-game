@@ -5,7 +5,7 @@ const cards = document.querySelectorAll('.card');
 for (let card of cards) {
   card.addEventListener('click', function (event) {
     this.classList.toggle('back');
-    // this.classList.toggle('front');
+    this.classList.toggle('front');
   })
 }
 
@@ -28,3 +28,9 @@ function shuffleArray(array) {
 }
 
 shuffleArray(pairs);
+
+const fronts = document.querySelectorAll('.card span');
+
+for (let i=0; i < fronts.length; i++) {
+  fronts[i].style.backgroundColor = pairs[i];
+}
