@@ -34,3 +34,46 @@ const fronts = document.querySelectorAll('.card span');
 for (let i=0; i < fronts.length; i++) {
   fronts[i].style.backgroundColor = pairs[i];
 }
+
+
+
+// TIMER
+
+let secs = 00;
+let mins = 00;
+let hrs = 00;
+let displaySecs, displayMins, displayHrs;
+let counter = setInterval( function() {
+  //conditions to make the seconds and minutes to count only to 59 and then add
+  //a minute or an hour respectivley
+  if (secs == 59) {
+    secs = 0;
+    if (mins == 59) {
+      mins = 0;
+      hrs++;
+    } else {
+      mins ++;
+    }
+  } else {
+    secs++;
+  }
+  //conditions to set the display to be 00:00:00 and not 0:0:0
+  if (secs < 10) {
+    displaySecs = '0' + secs;
+  } else {
+    displaySecs = secs;
+  }
+  if (mins < 10) {
+    displayMins = '0' + mins;
+  } else {
+    displayMins = mins;
+  }
+  if (hrs < 10) {
+    displayHrs = '0' + hrs;
+  } else {
+    displayHrs = hrs;
+  }
+  timer.innerHTML = displayHrs + ':' + displayMins + ':' + displaySecs;
+}, 1000);
+
+const timer = document.getElementById('timer');
