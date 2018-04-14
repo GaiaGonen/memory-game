@@ -18,6 +18,7 @@ const startGameButton = document.getElementById('start-game')
 
 let moves = 0;
 
+let counter = null;
 
 //---------------------------------------------------
 //
@@ -28,11 +29,13 @@ let moves = 0;
 // A function to start the timer running => TODO add a stop timer and implement it
 // inside the start Timer.
 function startTimer() {
+  stopTimer();
   let secs = 0;
   let mins = 0;
   let hrs = 0;
-  let displaySecs, displayMins, displayHrs;
-  let counter = setInterval( function() {
+  let displaySecs = '0' + secs, displayMins = '0' + mins, displayHrs = '0' + hrs;
+  timer.innerHTML = displayHrs + ':' + displayMins + ':' + displaySecs;
+  counter = setInterval( function() {
     //conditions to make the seconds and minutes to count only to 59 and then add
     //a minute or an hour respectivley
     if (secs == 59) {
@@ -66,6 +69,9 @@ function startTimer() {
   }, 1000);
 }
 
+function stopTimer() {
+  clearInterval(counter);
+}
 // A function to randomize an array (changes the original array)
 // Implementaition of  Durstenfeld shuffle in EMACS6
 // Is introduced by Laurens Holst in Stack-over-flow
@@ -149,17 +155,6 @@ function restartGame() {
   moves = 0
   moveCounter.innerHTML = moves;
   // restart startTimer
-  startTimer()
+  stopTimer(counter);
+  startTimer();
 }
-
-//---------------------------------------------------
-//
-// Game Functionality
-//
-//---------------------------------------------------
-
-// TODO game functionality should begin only when pressing 'start game' or 'restart'.
-// consider changing the button's value instead of doing two buttons.
-// The timer should also reset. HOW to make the functionality
-
-// A loop to add an event listner (click) on each card
