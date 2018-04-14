@@ -136,15 +136,20 @@ function startGame() {
 }
 
 function restartGame() {
+  // Turn all cards back if there are any
+  let fronts = document.querySelectorAll('.front');
+  if (fronts.length > 0) {
+    for (let front of fronts) {
+      toggleCardClass(front);
+    }
+  }
   // shuffle the deck
-
-  // set deck values to cards
-
-  // I think click events will stay active?
-
+  shuffleDeck();
+  // restart moves
+  moves = 0
+  moveCounter.innerHTML = moves;
   // restart startTimer
-
-
+  startTimer()
 }
 
 //---------------------------------------------------
