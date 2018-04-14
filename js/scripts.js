@@ -10,6 +10,11 @@ const timer = document.getElementById('timer');
 
 const cardValue = document.querySelectorAll('.card span');
 
+const moveCounter = document.getElementById('num-of-moves');
+
+
+
+
 // Values that need to be matched. cards.length should be equal to pairs.length
 let pairs = ["red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue",
 "red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue"];
@@ -74,6 +79,11 @@ function shuffleArray(array) {
   }
 }
 
+function addMove() {
+    moves++;
+    moveCounter.innerHTML('moves');
+}
+
 function toggleCardClass(card) {
     card.classList.toggle('back');
     card.classList.toggle('front');
@@ -113,6 +123,7 @@ function startGame() {
   // start startTimer
 
   // start counting moves
+  let moves = 0;
 }
 
 function restartGame() {

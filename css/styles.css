@@ -43,7 +43,13 @@ ol, ul {
 * Statistics Styles
 ***********************************/
 
-.timer {
+#timer {
+  width: 100px;
+  height: 50px;
+  border: 1px solid black;
+}
+
+#num-of-moves {
   width: 100px;
   height: 50px;
   border: 1px solid black;
