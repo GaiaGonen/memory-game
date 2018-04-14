@@ -73,9 +73,10 @@ function shuffleArray(array) {
   }
 }
 
-function toggle(element) {
-    element.classList.toggle('back');
-    element.classList.toggle('front');
+
+function toggleCardClass(card) {
+    card.classList.toggle('back');
+    card.classList.toggle('front');
 }
 
 function checkCards() {
@@ -84,21 +85,21 @@ function checkCards() {
     const compareValue1 = fronts[0].firstChild.style.getPropertyValue('background-color');
     const compareValue2 = fronts[1].firstChild.style.getPropertyValue('background-color');
     if (compareValue1 != compareValue2) {
-      toggle(fronts[0]);
-      toggle(fronts[1]);
+      toggleCardClass(fronts[0]);
+      toggleCardClass(fronts[1]);
     } else {
       fronts[0].removeEventListener('click', flipCard);
       fronts[1].removeEventListener('click', flipCard);
       fronts[0].style.visibility = 'hidden';
       fronts[1].style.visibility = 'hidden';
-      toggle(fronts[0]);
-      toggle(fronts[1]);
+      toggleCardClass(fronts[0]);
+      toggleCardClass(fronts[1]);
     }
   }
 }
 
 function flipCard() {
-  toggle(this);
+  toggleCardClass(this);
   checkCards();
 }
 
@@ -122,18 +123,3 @@ for (let card of cards) {
 for (let i=0; i < cardValue.length; i++) {
   cardValue[i].style.backgroundColor = pairs[i];
 }
-
-// // Make sure all cards flipped are selected
-// fronts = document.querySelectorAll('.front');
-// // A check to see if two cards are open and act accordingly
-// if (fronts.length == 2) {
-//   const firstCardValue = fronts[0].firstChild.style.getPropertyValue('background-color');
-//   const secondCardValue = fronts[1].firstChild.style.getPropertyValue('background-color');
-//   if (firstCardValue === secondCardValue) {
-//     fronts[0].removeEventHandler('click', flipCard);
-//     fronts[1].removeEventHandler('click', flipCard);
-//   } else {
-//     fronts[1].flipCard;
-//     fronts[0].flipCard;
-//   }
-// }
