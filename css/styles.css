@@ -25,6 +25,10 @@ ol, ul {
   display: block;
 }
 
+.done span {
+  display: block;
+}
+
 .back span {
   display: none;
 }
