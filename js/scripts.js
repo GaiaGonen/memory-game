@@ -22,7 +22,8 @@ let pairs = ["red", "purple", "green", "yellow", "orange", "pink", "deeppink", "
 //
 //---------------------------------------------------
 
-// A function to start the timer running
+// A function to start the timer running => TODO add a stop timer and implement it
+// inside the start Timer.
 function startTimer() {
   let secs = 0;
   let mins = 0;
@@ -73,7 +74,6 @@ function shuffleArray(array) {
   }
 }
 
-
 function toggleCardClass(card) {
     card.classList.toggle('back');
     card.classList.toggle('front');
@@ -103,6 +103,29 @@ function flipCard() {
   checkCards();
 }
 
+function startGame() {
+  // shuffle the deck
+
+  // set deck values to cards
+
+  // set click events to all cards
+
+  // start startTimer
+
+  // start counting moves
+}
+
+function restartGame() {
+  // shuffle the deck
+
+  // set deck values to cards
+
+  // I think click events will stay active?
+
+  // restart startTimer
+
+
+}
 
 //---------------------------------------------------
 //
