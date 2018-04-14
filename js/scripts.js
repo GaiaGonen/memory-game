@@ -12,14 +12,18 @@ const cardValue = document.querySelectorAll('.card span');
 
 const moveCounter = document.getElementById('num-of-moves');
 
-
+let moves = 0;
 
 
 // Values that need to be matched. cards.length should be equal to pairs.length
 let pairs = ["red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue",
 "red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue"];
 
-
+shuffleArray(pairs);
+// A loop to set the changeable values for the cards after each shuffle
+for (let i=0; i < cardValue.length; i++) {
+  cardValue[i].style.backgroundColor = pairs[i];
+}
 
 //---------------------------------------------------
 //
@@ -81,7 +85,7 @@ function shuffleArray(array) {
 
 function addMove() {
     moves++;
-    moveCounter.innerHTML('moves');
+    moveCounter.innerHTML = moves;
 }
 
 function toggleCardClass(card) {
@@ -111,6 +115,7 @@ function checkCards() {
 function flipCard() {
   toggleCardClass(this);
   checkCards();
+  addMove();
 }
 
 function startGame() {
@@ -151,9 +156,4 @@ function restartGame() {
 // A loop to add an event listner (click) on each card
 for (let card of cards) {
   card.addEventListener('click', flipCard);
-}
-
-// A loop to set the changeable values for the cards after each shuffle
-for (let i=0; i < cardValue.length; i++) {
-  cardValue[i].style.backgroundColor = pairs[i];
 }
