@@ -10,7 +10,7 @@ const timer = document.getElementById('timer');
 
 const cardValue = document.querySelectorAll('.card span');
 
-const fronts = document.querySelectorAll('.front');
+let fronts = document.querySelectorAll('.front');
 
 // Values that need to be matched. cards.length should be equal to pairs.length
 let pairs = ["red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue",
@@ -24,7 +24,7 @@ let pairs = ["red", "purple", "green", "yellow", "orange", "pink", "deeppink", "
 //
 //---------------------------------------------------
 
-//A function to start the timer running
+// A function to start the timer running
 function startTimer() {
   let secs = 0;
   let mins = 0;
@@ -75,14 +75,30 @@ function shuffleArray(array) {
   }
 }
 
-function flipCard() {
-    this.classList.toggle('back');
-    this.classList.toggle('front');
-
+function toggle(element) {
+    element.classList.toggle('back');
+    element.classList.toggle('front');
 }
 
+function checkCards() {
+  fronts = document.querySelectorAll('.front');
+  if (fronts.length >= 2) {
+    const compareValue1 = fronts[0].firstChild.style.getPropertyValue('background-color');
+    const compareValue2 = fronts[1].firstChild.style.getPropertyValue('background-color');
+    if (compareValue1 != compareValue2) {
+      toggle(fronts[0]);
+      toggle(fronts[1]);
+    } else {
+      fronts[0].removeEventListener('click', flipCard);
+      fronts[1].removeEventListener('click', flipCard);
+    }
+  }
+}
 
-
+function flipCard() {
+  toggle(this);
+  checkCards();
+}
 
 
 //---------------------------------------------------
@@ -105,11 +121,17 @@ for (let i=0; i < cardValue.length; i++) {
   cardValue[i].style.backgroundColor = pairs[i];
 }
 
-// A check to see if two cards are open and act accordingly
-if (fronts.length == 2) {
-  const firstCardValue = fronts[0].style.getPropertyValue(backgroundColor);
-  const secondCardValue = fronts[1].style.getPropertyValue(backgroundColor);
-  if (firstCardValue === secondCardValue) {
-    fronts[0]
-  }
-}
+// // Make sure all cards flipped are selected
+// fronts = document.querySelectorAll('.front');
+// // A check to see if two cards are open and act accordingly
+// if (fronts.length == 2) {
+//   const firstCardValue = fronts[0].firstChild.style.getPropertyValue('background-color');
+//   const secondCardValue = fronts[1].firstChild.style.getPropertyValue('background-color');
+//   if (firstCardValue === secondCardValue) {
+//     fronts[0].removeEventHandler('click', flipCard);
+//     fronts[1].removeEventHandler('click', flipCard);
+//   } else {
+//     fronts[1].flipCard;
+//     fronts[0].flipCard;
+//   }
+// }
