@@ -10,8 +10,6 @@ const timer = document.getElementById('timer');
 
 const cardValue = document.querySelectorAll('.card span');
 
-let fronts = document.querySelectorAll('.front');
-
 // Values that need to be matched. cards.length should be equal to pairs.length
 let pairs = ["red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue",
 "red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue"];
@@ -81,7 +79,7 @@ function toggle(element) {
 }
 
 function checkCards() {
-  fronts = document.querySelectorAll('.front');
+  let fronts = document.querySelectorAll('.front');
   if (fronts.length >= 2) {
     const compareValue1 = fronts[0].firstChild.style.getPropertyValue('background-color');
     const compareValue2 = fronts[1].firstChild.style.getPropertyValue('background-color');
@@ -91,6 +89,10 @@ function checkCards() {
     } else {
       fronts[0].removeEventListener('click', flipCard);
       fronts[1].removeEventListener('click', flipCard);
+      fronts[0].style.visibility = 'hidden';
+      fronts[1].style.visibility = 'hidden';
+      toggle(fronts[0]);
+      toggle(fronts[1]);
     }
   }
 }
