@@ -2,7 +2,7 @@
 * Basic Styles
 ************************************/
 
-ol {
+ol, ul {
   list-style: none;
 }
 
@@ -29,7 +29,17 @@ ol {
 * Layout
 ***********************************/
 
+#game-board {
+  width: 70%;
+  float: left;
+}
+
 #game-board ol {
   display: grid;
   grid: 250px 250px 250px 250px / 25% 25% 25% 25%
+}
+
+#menu {
+  float: right;
+  width: 30%;
 }
