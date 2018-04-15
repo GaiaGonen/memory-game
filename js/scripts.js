@@ -26,8 +26,6 @@ let counter = null;
 //
 //---------------------------------------------------
 
-// A function to start the timer running => TODO add a stop timer and implement it
-// inside the start Timer.
 function startTimer() {
   stopTimer();
   let secs = 0;
@@ -72,6 +70,7 @@ function startTimer() {
 function stopTimer() {
   clearInterval(counter);
 }
+
 // A function to randomize an array (changes the original array)
 // Implementaition of  Durstenfeld shuffle in EMACS6
 // Is introduced by Laurens Holst in Stack-over-flow
@@ -100,7 +99,7 @@ function addMove() {
     moveCounter.innerHTML = moves;
 }
 
-function toggleCardClass(card) {
+function toggleCardSide(card) {
     card.classList.toggle('back');
     card.classList.toggle('front');
 }
@@ -111,21 +110,21 @@ function checkCards() {
     const compareValue1 = fronts[0].firstChild.style.getPropertyValue('background-color');
     const compareValue2 = fronts[1].firstChild.style.getPropertyValue('background-color');
     if (compareValue1 != compareValue2) {
-      toggleCardClass(fronts[0]);
-      toggleCardClass(fronts[1]);
+      toggleCardSide(fronts[0]);
+      toggleCardSide(fronts[1]);
     } else {
       fronts[0].removeEventListener('click', flipCard);
       fronts[1].removeEventListener('click', flipCard);
       fronts[0].style.visibility = 'hidden';
       fronts[1].style.visibility = 'hidden';
-      toggleCardClass(fronts[0]);
-      toggleCardClass(fronts[1]);
+      toggleCardSide(fronts[0]);
+      toggleCardSide(fronts[1]);
     }
   }
 }
 
 function flipCard() {
-  toggleCardClass(this);
+  toggleCardSide(this);
   checkCards();
   addMove();
 }
@@ -146,7 +145,7 @@ function restartGame() {
   let fronts = document.querySelectorAll('.front');
   if (fronts.length > 0) {
     for (let front of fronts) {
-      toggleCardClass(front);
+      toggleCardSide(front);
     }
   }
   // shuffle the deck
