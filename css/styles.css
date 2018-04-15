@@ -58,6 +58,12 @@ ol, ul {
   border: 1px solid black;
 }
 
+#num-of-games {
+  width: 100px;
+  height: 50px;
+  border: 1px solid black;
+}
+
 
 /***********************************
 * Layout
