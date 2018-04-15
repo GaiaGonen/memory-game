@@ -18,6 +18,8 @@ const startGameButton = document.getElementById('start-game');
 
 const gameCounter = document.getElementById('num-of-games');
 
+const starRating = document.getElementById('star-rating')
+
 let moves = 0;
 
 let games = 0;
@@ -101,11 +103,22 @@ function shuffleDeck() {
 function addMove() {
     moves++;
     moveCounter.innerHTML = moves;
+    checkStars();
 }
 
 function addGame() {
   games++;
   gameCounter.innerHTML = games;
+}
+
+function checkStars() {
+  if (moves > 45 && moves <= 60) {
+    starRating.children[0].style.visibility = 'hidden';
+  } else if (moves > 60 && moves <= 75) {
+    starRating.children[1].style.visibility = 'hidden';
+  } else if (moves > 75) {
+    starRating.children[2].style.visibility = 'hidden';
+  }
 }
 
 function toggleCardSide(card) {
@@ -168,13 +181,3 @@ function restartGame() {
   stopTimer(timerCounter);
   startTimer();
 }
-
-// TODO - star rating
-// implement a li with three spans representing stars
-// make a function to check how many stars should be
-// and delete with hidden class.
-// This function should be implemented in flipCard (called every time a move is made)
-// TODO - number of games
-// count up a game.
-// implement in a function that is called whenever
-// start game or restart game is clicked.
