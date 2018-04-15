@@ -24,22 +24,21 @@ ol, ul {
   background-color: blue;
 }
 
+.card span {
+  width: 100%;
+  height: 100%;
+}
+
 .front span {
   display: block;
 }
 
-.done span {
-  display: block;
-}
 
 .back span {
   display: none;
 }
 
-.card span {
-  width: 100%;
-  height: 100%;
-}
+
 
 
 /***********************************
