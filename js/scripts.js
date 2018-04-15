@@ -112,7 +112,11 @@ function addGame() {
 }
 
 function checkStars() {
-  if (moves > 45 && moves <= 60) {
+  if (moves <= 45) {
+    starRating.children[0].style.visibility = 'visible';
+    starRating.children[1].style.visibility = 'visible';
+    starRating.children[2].style.visibility = 'visible';
+  } else if (moves > 45 && moves <= 60) {
     starRating.children[0].style.visibility = 'hidden';
   } else if (moves > 60 && moves <= 75) {
     starRating.children[1].style.visibility = 'hidden';
@@ -177,6 +181,7 @@ function restartGame() {
   // restart moves
   moves = 0
   moveCounter.innerHTML = moves;
+  checkStars();
   // restart startTimer
   stopTimer(timerCounter);
   startTimer();
