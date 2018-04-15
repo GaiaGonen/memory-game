@@ -12,13 +12,17 @@ const cardValue = document.querySelectorAll('.card span');
 
 const moveCounter = document.getElementById('num-of-moves');
 
-const restartButton = document.getElementById('restart-game')
+const restartButton = document.getElementById('restart-game');
 
-const startGameButton = document.getElementById('start-game')
+const startGameButton = document.getElementById('start-game');
+
+const gameCounter = document.getElementById('num-of-games');
 
 let moves = 0;
 
-let counter = null;
+let games = 0;
+
+let timerCounter = null;
 
 //---------------------------------------------------
 //
@@ -33,7 +37,7 @@ function startTimer() {
   let hrs = 0;
   let displaySecs = '0' + secs, displayMins = '0' + mins, displayHrs = '0' + hrs;
   timer.innerHTML = displayHrs + ':' + displayMins + ':' + displaySecs;
-  counter = setInterval( function() {
+  timerCounter = setInterval( function() {
     //conditions to make the seconds and minutes to count only to 59 and then add
     //a minute or an hour respectivley
     if (secs == 59) {
@@ -68,7 +72,7 @@ function startTimer() {
 }
 
 function stopTimer() {
-  clearInterval(counter);
+  clearInterval(timerCounter);
 }
 
 // A function to randomize an array (changes the original array)
@@ -97,6 +101,11 @@ function shuffleDeck() {
 function addMove() {
     moves++;
     moveCounter.innerHTML = moves;
+}
+
+function addGame() {
+  games++;
+  gameCounter.innerHTML = games;
 }
 
 function toggleCardSide(card) {
@@ -131,6 +140,7 @@ function flipCard() {
 
 function startGame() {
   shuffleDeck();
+  addGame();
   startTimer();
   // set click events to all cards
   for (let card of cards) {
@@ -148,12 +158,23 @@ function restartGame() {
       toggleCardSide(front);
     }
   }
+  addGame();
   // shuffle the deck
   shuffleDeck();
   // restart moves
   moves = 0
   moveCounter.innerHTML = moves;
   // restart startTimer
-  stopTimer(counter);
+  stopTimer(timerCounter);
   startTimer();
 }
+
+// TODO - star rating
+// implement a li with three spans representing stars
+// make a function to check how many stars should be
+// and delete with hidden class.
+// This function should be implemented in flipCard (called every time a move is made)
+// TODO - number of games
+// count up a game.
+// implement in a function that is called whenever
+// start game or restart game is clicked.
