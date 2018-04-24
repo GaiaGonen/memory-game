@@ -7,7 +7,7 @@ ol, ul {
 }
 
 .hidden {
-  display: none;
+  visibility: hidden;
 }
 
 /***********************************
@@ -18,6 +18,7 @@ ol, ul {
   width: 150px;
   height: 200px;
   border: 1px solid black;
+  transform: visibility 5s;
 }
 
 .back {
@@ -86,10 +87,33 @@ ol, ul {
 
 #game-board ol {
   display: grid;
-  grid: 250px 250px 250px 250px / 25% 25% 25% 25%
+  grid: 250px 250px 250px 250px / 25% 25% 25% 25%;
 }
 
 #menu {
   float: right;
   width: 30%;
+}
+
+/************************************
+* Keyframes, Transitions and Animations
+************************************/
+
+@keyframes wrong {
+  0% {transform: rotate(0deg);}
+  50% {transform: rotate(-1deg);}
+  100% {transform: rotate(1deg);}
+}
+
+@keyframes right {
+
+}
+
+.wrong {
+  animation: wrong 0.5s;
+  animation-iteration-count: 2;
+}
+
+.right {
+
 }
