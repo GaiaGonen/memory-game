@@ -15,8 +15,9 @@ ol, ul {
 ***********************************/
 
 .card {
-  width: 150px;
-  height: 200px;
+  max-width: 150px;
+  /* min-height: 100px; */
+  max-height: 200px;
   border: 1px solid black;
   transform: visibility 5s;
 }
@@ -83,11 +84,13 @@ ol, ul {
 #game-board {
   width: 70%;
   float: left;
+  height: 100vh;
 }
 
 #game-board ol {
   display: grid;
-  grid: 250px 250px 250px 250px / 25% 25% 25% 25%;
+  grid: repeat(4, 22vh) / 25% 25% 25% 25%;
+  grid-gap: 10px;
 }
 
 #menu {
@@ -99,23 +102,23 @@ ol, ul {
 * Keyframes, Transitions and Animations
 ************************************/
 
-@keyframes wrong {
+@keyframes wrongAnimation {
   0% {transform: rotate(0deg);}
   50% {transform: rotate(-1deg);}
   100% {transform: rotate(1deg);}
 }
 
-@keyframes rightAnser {
+@keyframes rightAnimation {
   0% {transform: scale(0);}
   50% {transform: scale(1);}
   100% {transform: scale(0);}
 }
 
 .wrong {
-  animation: wrong 0.2s;
+  animation: wrongAnimation 0.2s;
   animation-iteration-count: 2;
 }
 
 .right {
-  animation: rightAnser 0.5s;
+  animation: rightAnimation 0.5s;
 }

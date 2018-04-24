@@ -222,6 +222,7 @@ function restartGame() {
   if (hiddenCards.length > 0) {
     for (let card of hiddenCards) {
       card.classList.remove('hidden');
+      card.classList.add('back');
     }
   }
   addGame();
@@ -235,3 +236,6 @@ function restartGame() {
   stopTimer(timerCounter);
   startTimer();
 }
+
+
+//TODO pause button?
