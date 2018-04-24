@@ -218,7 +218,7 @@ function restartGame() {
     }
   }
   //remove any hidden styles
-  let hiddenCards = document.querySelectorAll('.hidden');
+  let hiddenCards = document.querySelectorAll('ol .hidden');
   if (hiddenCards.length > 0) {
     for (let card of hiddenCards) {
       card.classList.remove('hidden');
