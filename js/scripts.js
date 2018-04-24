@@ -143,7 +143,7 @@ function rightAnswer() {
 } //what happens to the cards when cards match
 
 function wrongAnswer() {
-  this.classList.remove('remove');
+  this.classList.remove('wrong');
   flipCardBack(this);
   removeEventListener('animationend', wrongAnswer);
 
@@ -166,12 +166,6 @@ function checkCards() {
     card1.classList.add('wrong');
     card2.classList.add('wrong');
   }
-    // Check if values are equal or not
-    // If wrong and animation wrongAnimation should run
-    // At end of animation the two cards should flip back and the animationend should be removed
-    // If right rightANimation should run
-    // At end of animation the two cards should dissappear and, and both click and animationend should be removed
-
 }
 
 // Everything that should happen when clicking a card
@@ -204,15 +198,17 @@ function startGame() {
 // Everything that should happen when restarting a game
 function restartGame() {
   // Turn all cards back if there are any
-  let fronts = document.querySelectorAll('.front');
-  if (fronts.length > 0) {
-    for (let front of fronts) {
-      flipCard(front);
+  let openCards = document.querySelectorAll('.front');
+  if (openCards.length > 0) {
+    for (let card of openCards) {
+      flipCardBack(card);
     }
   }
   //remove any hidden styles
   for (let card of cards) {
-    this.style.visibility = null;
+    if (this.classList.contains('hidden')) {
+      this.classList.remove('hidden');
+    }
   }
   addGame();
   // shuffle the deck
