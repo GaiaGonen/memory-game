@@ -150,6 +150,12 @@ function rightAnswer() {
   this.classList.add('hidden');
   this.classList.remove('front', 'right');
   this.removeEventListener('animationend', rightAnswer);
+  // checks if all cards are gone and if they are it shows the modal
+  const hiddenCards = document.querySelectorAll('ol .hidden');
+  if (hiddenCards.length == cards.length) {
+    const modal = document.getElementById('win_game_modal');
+    modal.style.display = "block";
+  }
 } //what happens to the cards when cards match
 
 function wrongAnswer() {
@@ -173,6 +179,7 @@ function checkCards() {
     // TODO should run a check here if all cards are gone and if yes run a function 'SUCCESS!!!'
     // future Gaia: I chose this place because after the cards are all right this place is where
     // the next code will run.
+
   } else {
     card1.addEventListener('animationend', wrongAnswer);
     card2.addEventListener('animationend', wrongAnswer);
@@ -211,14 +218,14 @@ function startGame() {
 // Everything that should happen when restarting a game
 function restartGame() {
   // Turn all cards back if there are any
-  let openCards = document.querySelectorAll('.front');
+  const openCards = document.querySelectorAll('.front');
   if (openCards.length > 0) {
     for (let card of openCards) {
       flipCardBack(card);
     }
   }
   //remove any hidden styles
-  let hiddenCards = document.querySelectorAll('ol .hidden');
+  const hiddenCards = document.querySelectorAll('ol .hidden');
   if (hiddenCards.length > 0) {
     for (let card of hiddenCards) {
       card.classList.remove('hidden');
@@ -237,5 +244,27 @@ function restartGame() {
   startTimer();
 }
 
+function playAgain() {
+  const modal = document.getElementById('win_game_modal');
+  modal.style.display = "none";
+  //remove any hidden styles
+  const hiddenCards = document.querySelectorAll('ol .hidden');
+  if (hiddenCards.length > 0) {
+    for (let card of hiddenCards) {
+      card.classList.remove('hidden');
+      card.classList.add('back');
+    }
+  }
+  addGame();
+  // shuffle the deck
+  shuffleDeck();
+  // restart moves
+  moves = 0
+  moveCounter.innerHTML = moves;
+  checkStars();
+  // restart startTimer
+  stopTimer(timerCounter);
+  startTimer();
+}
 
 //TODO pause button?
