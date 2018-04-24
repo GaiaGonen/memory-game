@@ -169,7 +169,7 @@ function checkCards() {
 }
 
 // Everything that should happen when clicking a card
-function clickFunctionality() {
+function cardClick() {
   if (this.classList.contains('back')) {
     flipCardFront(this);
   } else if (this.classList.contains('front')) {
@@ -189,7 +189,7 @@ function startGame() {
   startTimer();
   // set click events to all cards
   for (let card of cards) {
-    card.addEventListener('click', clickFunctionality);
+    card.addEventListener('click', cardClick);
   }
   startGameButton.classList.toggle('hidden');
   restartButton.classList.toggle('hidden');
