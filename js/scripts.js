@@ -4,6 +4,7 @@
 //
 //---------------------------------------------------
 
+// TODO can all of those be inserted only where they are really beeded?
 const cards = document.querySelectorAll('.card');
 
 const timer = document.getElementById('timer');
@@ -100,6 +101,15 @@ function shuffleDeck() {
   }
 }
 
+function createCard() {
+  // TODO make the cards built from scratch, appended to a semi document and only then
+  // distrubited across the board.
+  // this function should create the element and append it to a created-on-the-fly semi document
+  // in shuffle deck the cards should be created in the loop - create card- add the value -
+  // nicely done!
+  // can also add a nice animation
+}
+
 function addMove() {
     moves++;
     moveCounter.innerHTML = moves;
@@ -160,6 +170,9 @@ function checkCards() {
     card2.addEventListener('animationend', rightAnswer);
     card1.classList.add('right');
     card2.classList.add('right');
+    // TODO should run a check here if all cards are gone and if yes run a function 'SUCCESS!!!'
+    // future Gaia: I chose this place because after the cards are all right this place is where
+    // the next code will run.
   } else {
     card1.addEventListener('animationend', wrongAnswer);
     card2.addEventListener('animationend', wrongAnswer);
@@ -191,8 +204,8 @@ function startGame() {
   for (let card of cards) {
     card.addEventListener('click', cardClick);
   }
-  startGameButton.classList.toggle('hidden');
-  restartButton.classList.toggle('hidden');
+  startGameButton.classList.add('hidden');
+  restartButton.classList.remove('hidden');
 }
 
 // Everything that should happen when restarting a game
@@ -205,9 +218,10 @@ function restartGame() {
     }
   }
   //remove any hidden styles
-  for (let card of cards) {
-    if (this.classList.contains('hidden')) {
-      this.classList.remove('hidden');
+  let hiddenCards = document.querySelectorAll('.hidden');
+  if (hiddenCards.length > 0) {
+    for (let card of hiddenCards) {
+      card.classList.remove('hidden');
     }
   }
   addGame();
