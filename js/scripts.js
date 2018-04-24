@@ -121,17 +121,14 @@ function addGame() {
   gameCounter.innerHTML = games;
 }
 
-function checkStars() { //TODO make this code more efficient
-  if (moves <= 45) {
-    starRating.children[0].style.visibility = 'visible';
-    starRating.children[1].style.visibility = 'visible';
-    starRating.children[2].style.visibility = 'visible';
-  } else if (moves > 45 && moves <= 60) {
-    starRating.children[0].style.visibility = 'hidden';
+function checkStars() {
+  const stars = document.querySelectorAll('.star') //TODO make this code more efficient
+  if (moves > 25 && moves <= 50) {
+    stars[0].classList.replace('star', 'hidden');
   } else if (moves > 60 && moves <= 75) {
-    starRating.children[1].style.visibility = 'hidden';
+    stars[0].classList.replace('star', 'hidden');
   } else if (moves > 75) {
-    starRating.children[2].style.visibility = 'hidden';
+    stars[0].classList.replace('star', 'hidden');
   }
 }
 
