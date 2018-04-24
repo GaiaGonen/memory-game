@@ -125,55 +125,94 @@ function checkStars() {
   }
 }
 
-function toggleCardSide(card) {
-    card.classList.toggle('back');
-    card.classList.toggle('front');
+function flipCardBack(card) {
+    card.classList.replace('front', 'back');
 }
 
-function checkCards() {
-  let fronts = document.querySelectorAll('.front');
-  if (fronts.length >= 2) {
-    const compareValue1 = fronts[0].firstChild.style.getPropertyValue('background-color');
-    const compareValue2 = fronts[1].firstChild.style.getPropertyValue('background-color');
-    if (compareValue1 != compareValue2) {
-      toggleCardSide(fronts[0]);
-      toggleCardSide(fronts[1]);
-    } else {
-      fronts[0].removeEventListener('click', flipCard);
-      fronts[1].removeEventListener('click', flipCard);
-      fronts[0].style.visibility = 'hidden';
-      fronts[1].style.visibility = 'hidden';
-      toggleCardSide(fronts[0]);
-      toggleCardSide(fronts[1]);
-    }
+function flipCardFront(card) {
+  let fronts = document.querySelectorAll('.front')
+  if  (fronts.length < 2) {
+    card.classList.replace('back', 'front');
   }
 }
 
-function flipCard() {
-  toggleCardSide(this);
-  checkCards();
+function rightAnswer() {
+  this.classList.add('hidden');
+  this.classList.remove('front', 'right');
+  this.removeEventListener('animationend', rightAnswer);
+} //what happens to the cards when cards match
+
+function wrongAnswer() {
+  this.classList.remove('remove');
+  flipCardBack(this);
+  removeEventListener('animationend', wrongAnswer);
+
+} //what happens to the cards when cards don't match
+
+function checkCards() {
+  const openCards = document.querySelectorAll('.front');
+  const card1 = openCards[0];
+  const card2 = openCards[1];
+  const compareValueCard1 = card1.firstChild.style.getPropertyValue('background-color');
+  const compareValueCard2 = card2.firstChild.style.getPropertyValue('background-color');
+  if (compareValueCard1 == compareValueCard2) {
+    card1.addEventListener('animationend', rightAnswer);
+    card2.addEventListener('animationend', rightAnswer);
+    card1.classList.add('right');
+    card2.classList.add('right');
+  } else {
+    card1.addEventListener('animationend', wrongAnswer);
+    card2.addEventListener('animationend', wrongAnswer);
+    card1.classList.add('wrong');
+    card2.classList.add('wrong');
+  }
+    // Check if values are equal or not
+    // If wrong and animation wrongAnimation should run
+    // At end of animation the two cards should flip back and the animationend should be removed
+    // If right rightANimation should run
+    // At end of animation the two cards should dissappear and, and both click and animationend should be removed
+
+}
+
+// Everything that should happen when clicking a card
+function clickFunctionality() {
+  if (this.classList.contains('back')) {
+    flipCardFront(this);
+  } else if (this.classList.contains('front')) {
+    flipCardBack(this);
+  }
+  let openCards = document.querySelectorAll('.front');
+  if (openCards.length == 2) {
+    checkCards();
+  }
   addMove();
 }
 
+// Everything that should happen when starting the game
 function startGame() {
   shuffleDeck();
   addGame();
   startTimer();
   // set click events to all cards
   for (let card of cards) {
-    card.addEventListener('click', flipCard);
+    card.addEventListener('click', clickFunctionality);
   }
   startGameButton.classList.toggle('hidden');
   restartButton.classList.toggle('hidden');
 }
 
+// Everything that should happen when restarting a game
 function restartGame() {
   // Turn all cards back if there are any
   let fronts = document.querySelectorAll('.front');
   if (fronts.length > 0) {
     for (let front of fronts) {
-      toggleCardSide(front);
+      flipCard(front);
     }
+  }
+  //remove any hidden styles
+  for (let card of cards) {
+    this.style.visibility = null;
   }
   addGame();
   // shuffle the deck
