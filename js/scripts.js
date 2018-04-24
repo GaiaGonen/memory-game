@@ -121,7 +121,7 @@ function addGame() {
   gameCounter.innerHTML = games;
 }
 
-function checkStars() {
+function checkStars() { //TODO make this code more efficient
   if (moves <= 45) {
     starRating.children[0].style.visibility = 'visible';
     starRating.children[1].style.visibility = 'visible';
@@ -146,6 +146,14 @@ function flipCardFront(card) {
   }
 }
 
+function showModal() {
+  const stars = starRating.children.length;
+  const modal = document.getElementById('win_game_modal');
+  const starsSpan = document.querySelector('.stars_num');
+  starsSpan.innerHTML = stars;
+  modal.style.display = "block";
+}
+
 function rightAnswer() {
   this.classList.add('hidden');
   this.classList.remove('front', 'right');
@@ -153,8 +161,7 @@ function rightAnswer() {
   // checks if all cards are gone and if they are it shows the modal
   const hiddenCards = document.querySelectorAll('ol .hidden');
   if (hiddenCards.length == cards.length) {
-    const modal = document.getElementById('win_game_modal');
-    modal.style.display = "block";
+    showModal();
   }
 } //what happens to the cards when cards match
 
