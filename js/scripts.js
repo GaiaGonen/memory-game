@@ -28,9 +28,7 @@ let games = 0;
 let timerCounter = null;
 
 //---------------------------------------------------
-//
-// Functions
-//
+// General Functions
 //---------------------------------------------------
 
 function startTimer() {
@@ -89,26 +87,17 @@ function shuffleArray(array) {
   }
 }
 
-function shuffleDeck() {
-  // Values that need to be matched. cards.length should be equal to pairs.length
-  let pairs = ["red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue",
-  "red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue"];
-
-  shuffleArray(pairs);
-  // A loop to set the changeable values for the cards after each shuffle
-  for (let i=0; i < cardValue.length; i++) {
-    cardValue[i].style.backgroundColor = pairs[i];
-  }
+function showModal() {
+  const stars = starRating.children.length;
+  const modal = document.getElementById('win_game_modal');
+  const starsSpan = document.querySelector('.stars_num');
+  starsSpan.innerHTML = stars;
+  modal.style.display = "block";
 }
 
-function createCard() {
-  // TODO make the cards built from scratch, appended to a semi document and only then
-  // distrubited across the board.
-  // this function should create the element and append it to a created-on-the-fly semi document
-  // in shuffle deck the cards should be created in the loop - create card- add the value -
-  // nicely done!
-  // can also add a nice animation
-}
+//---------------------------------------------------
+// Counter Functions
+//---------------------------------------------------
 
 function addMove() {
     moves++;
@@ -132,8 +121,21 @@ function checkStars() {
   }
 }
 
+//---------------------------------------------------
+// Card functionality
+//---------------------------------------------------
+
+function createCard() {
+  // TODO make the cards built from scratch, appended to a semi document and only then
+  // distrubited across the board.
+  // this function should create the element and append it to a created-on-the-fly semi document
+  // in shuffle deck the cards should be created in the loop - create card- add the value -
+  // nicely done!
+  // can also add a nice animation
+}
+
 function flipCardBack(card) {
-    card.classList.replace('front', 'back');
+  card.classList.replace('front', 'back');
 }
 
 function flipCardFront(card) {
@@ -142,32 +144,6 @@ function flipCardFront(card) {
     card.classList.replace('back', 'front');
   }
 }
-
-function showModal() {
-  const stars = starRating.children.length;
-  const modal = document.getElementById('win_game_modal');
-  const starsSpan = document.querySelector('.stars_num');
-  starsSpan.innerHTML = stars;
-  modal.style.display = "block";
-}
-
-function rightAnswer() {
-  this.classList.add('hidden');
-  this.classList.remove('front', 'right');
-  this.removeEventListener('animationend', rightAnswer);
-  // checks if all cards are gone and if they are it shows the modal
-  const hiddenCards = document.querySelectorAll('.cards .hidden');
-  if (hiddenCards.length == cards.length) {
-    showModal();
-  }
-} //what happens to the cards when cards match
-
-function wrongAnswer() {
-  this.classList.remove('wrong');
-  flipCardBack(this);
-  removeEventListener('animationend', wrongAnswer);
-
-} //what happens to the cards when cards don't match
 
 function checkCards() {
   const openCards = document.querySelectorAll('.front');
@@ -205,6 +181,44 @@ function cardClick() {
   }
   addMove();
 }
+
+function shuffleDeck() {
+  // Values that need to be matched. cards.length should be equal to pairs.length
+  let pairs = ["red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue",
+  "red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue"];
+
+  shuffleArray(pairs);
+  // A loop to set the changeable values for the cards after each shuffle
+  for (let i=0; i < cardValue.length; i++) {
+    cardValue[i].style.backgroundColor = pairs[i];
+  }
+}
+
+//---------------------------------------------------
+// Animations
+//---------------------------------------------------
+
+function rightAnswer() {
+  this.classList.add('hidden');
+  this.classList.remove('front', 'right');
+  this.removeEventListener('animationend', rightAnswer);
+  // checks if all cards are gone and if they are it shows the modal
+  const hiddenCards = document.querySelectorAll('.cards .hidden');
+  if (hiddenCards.length == cards.length) {
+    showModal();
+  }
+} //what happens to the cards when cards match
+
+function wrongAnswer() {
+  this.classList.remove('wrong');
+  flipCardBack(this);
+  removeEventListener('animationend', wrongAnswer);
+
+} //what happens to the cards when cards don't match
+
+//---------------------------------------------------
+// Functions to start a new game1
+//---------------------------------------------------
 
 // Everything that should happen when starting the game
 function startGame() {
