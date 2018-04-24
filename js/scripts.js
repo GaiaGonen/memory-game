@@ -122,13 +122,13 @@ function addGame() {
 }
 
 function checkStars() {
-  const stars = document.querySelectorAll('.star') //TODO make this code more efficient
+  const stars = document.querySelectorAll('.star')
   if (moves > 25 && moves <= 50) {
-    stars[0].classList.replace('star', 'hidden');
+    document.getElementById('first-star').classList.replace('star', 'hidden');
   } else if (moves > 60 && moves <= 75) {
-    stars[0].classList.replace('star', 'hidden');
+    document.getElementById('second-star').classList.replace('star', 'hidden');
   } else if (moves > 75) {
-    stars[0].classList.replace('star', 'hidden');
+    document.getElementById('third-star').classList.replace('star', 'hidden');
   }
 }
 
@@ -156,7 +156,7 @@ function rightAnswer() {
   this.classList.remove('front', 'right');
   this.removeEventListener('animationend', rightAnswer);
   // checks if all cards are gone and if they are it shows the modal
-  const hiddenCards = document.querySelectorAll('ol .hidden');
+  const hiddenCards = document.querySelectorAll('.cards .hidden');
   if (hiddenCards.length == cards.length) {
     showModal();
   }
@@ -228,17 +228,29 @@ function restartGame() {
       flipCardBack(card);
     }
   }
-  //remove any hidden styles
-  const hiddenCards = document.querySelectorAll('ol .hidden');
+  //remove any relevant hidden styles
+  const hiddenCards = document.querySelectorAll('.cards .hidden');
   if (hiddenCards.length > 0) {
     for (let card of hiddenCards) {
-      card.classList.remove('hidden');
       card.classList.add('back');
+      card.classList.remove('hidden');
     }
   }
+
+  //remove any relevant hidden styles
+  const hiddenStars = document.querySelectorAll('#star-rating .hidden');
+  if (hiddenStars.length > 0) {
+    for (let star of hiddenStars) {
+      star.classList.add('star');
+      star.classList.remove('hidden');
+    }
+  }
+
   addGame();
+
   // shuffle the deck
   shuffleDeck();
+
   // restart moves
   moves = 0
   moveCounter.innerHTML = moves;
@@ -251,24 +263,7 @@ function restartGame() {
 function playAgain() {
   const modal = document.getElementById('win_game_modal');
   modal.style.display = "none";
-  //remove any hidden styles
-  const hiddenCards = document.querySelectorAll('ol .hidden');
-  if (hiddenCards.length > 0) {
-    for (let card of hiddenCards) {
-      card.classList.remove('hidden');
-      card.classList.add('back');
-    }
-  }
-  addGame();
-  // shuffle the deck
-  shuffleDeck();
-  // restart moves
-  moves = 0
-  moveCounter.innerHTML = moves;
-  checkStars();
-  // restart startTimer
-  stopTimer(timerCounter);
-  startTimer();
+  restartGame();
 }
 
 //TODO pause button?
