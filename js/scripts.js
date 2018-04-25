@@ -134,16 +134,8 @@ function createCard() {
   // can also add a nice animation
 }
 
-// function flipCard(card) {
-//   if () // CHANGE should instead of replacing classes hide the front figure
-//   card.classList.replace('front', 'back');
-// }
-
 function flipCard(card) {
-  let openCards = document.querySelectorAll('.flipped');
-  if  (openCards.length < 2 || (card.classList.contains('flipped'))) {
     card.classList.toggle('flipped');
-  }
 }
 
 function checkCards() {
@@ -155,11 +147,13 @@ function checkCards() {
   if (compareValueCard1 == compareValueCard2) { // This should become a function that executes only when flipping card 3d animation ends
     card1.addEventListener('animationend', rightAnswer);
     card2.addEventListener('animationend', rightAnswer);
+
     setTimeout( function() {
       card1.classList.add('right');
       card2.classList.add('right');
     }, 1000);
   } else {
+
     card1.addEventListener('animationend', wrongAnswer);
     card2.addEventListener('animationend', wrongAnswer);
     setTimeout( function() {
@@ -171,9 +165,9 @@ function checkCards() {
 
 // Everything that should happen when clicking a card
 function cardClick() {
-  flipCard(this);
   let openCards = document.querySelectorAll('.flipped');
-  if (openCards.length == 2) {
+  if  (openCards.length < 2 || (card.classList.contains('flipped'))) {
+    flipCard(this);
     checkCards();
   }
   addMove();
@@ -188,6 +182,7 @@ function shuffleDeck() {
   // A loop to set the changeable values for the cards after each shuffle
   for (let i=0; i < cardValue.length; i++) {
     cardValue[i].style.backgroundColor = pairs[i];
+    cardValue[i].parentElement.style.backgroundColor = pairs[i];
   }
 }
 
@@ -198,7 +193,7 @@ function shuffleDeck() {
 // a function to happen when the animation for ' cards matching ' ends.
 function rightAnswer() {
   this.classList.add('hidden');
-  this.classList.remove('right');
+  this.classList.remove('right', 'flipped');
   this.removeEventListener('animationend', rightAnswer);
   // checks if all cards are gone and if they are it shows the modal
   const hiddenCards = document.querySelectorAll('.cards .hidden');
