@@ -133,7 +133,9 @@ ol, ul {
   animation: rightAnimation 0.5s;
 }
 
-.card.wrong .back {
+/* Hide back side when card's match and
+mismatch animation is playing */
+.card.wrong .back, .card.right .back {
   display: none;
 }
 
