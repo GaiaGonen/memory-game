@@ -16,7 +16,6 @@ ol, ul {
 
 .card {
   max-width: 150px;
-  /* min-height: 100px; */
   max-height: 200px;
   border: 1px solid black;
   transform: visibility 5s;

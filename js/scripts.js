@@ -88,10 +88,10 @@ function shuffleArray(array) {
 }
 
 function showModal() {
-  const stars = starRating.children.length;
+  const stars = document.querySelectorAll('.star');
   const modal = document.getElementById('win_game_modal');
   const starsSpan = document.querySelector('.stars_num');
-  starsSpan.innerHTML = stars;
+  starsSpan.innerHTML = stars.length;
   modal.style.display = "block";
 }
 
@@ -217,7 +217,7 @@ function wrongAnswer() {
 } //what happens to the cards when cards don't match
 
 //---------------------------------------------------
-// Functions to start a new game1
+// Functions to start a new game
 //---------------------------------------------------
 
 // Everything that should happen when starting the game
