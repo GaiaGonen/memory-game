@@ -5,11 +5,11 @@
 //---------------------------------------------------
 
 // TODO can all of those be inserted only where they are really beeded?
-const cards = document.querySelectorAll('.card');
+const cards = document.querySelectorAll('.card'); // CHANGE
 
 const timer = document.getElementById('timer');
 
-const cardValue = document.querySelectorAll('.card span');
+const cardValue = document.querySelectorAll('.card span'); // CHANGE
 
 const moveCounter = document.getElementById('num-of-moves');
 
@@ -100,9 +100,9 @@ function showModal() {
 //---------------------------------------------------
 
 function addMove() {
-    moves++;
-    moveCounter.innerHTML = moves;
-    checkStars();
+  moves++;
+  moveCounter.innerHTML = moves;
+  checkStars();
 }
 
 function addGame() {
@@ -134,32 +134,28 @@ function createCard() {
   // can also add a nice animation
 }
 
-function flipCardBack(card) {
+function flipCardBack(card) { // CHANGE should instead of replacing classes hide the front figure
   card.classList.replace('front', 'back');
 }
 
-function flipCardFront(card) {
-  let fronts = document.querySelectorAll('.front')
+function flipCardFront(card) { // CHANGE should instead of replacing classes hide the back figure
+  let fronts = document.querySelectorAll('.front') // CHANGE should consider how to mark open cards.
   if  (fronts.length < 2) {
     card.classList.replace('back', 'front');
   }
 }
 
 function checkCards() {
-  const openCards = document.querySelectorAll('.front');
+  const openCards = document.querySelectorAll('.front'); // CHANGE should consider how to mark open cards.
   const card1 = openCards[0];
   const card2 = openCards[1];
-  const compareValueCard1 = card1.firstChild.style.getPropertyValue('background-color');
+  const compareValueCard1 = card1.firstChild.style.getPropertyValue('background-color'); // Check if firstChild is still true
   const compareValueCard2 = card2.firstChild.style.getPropertyValue('background-color');
   if (compareValueCard1 == compareValueCard2) {
     card1.addEventListener('animationend', rightAnswer);
     card2.addEventListener('animationend', rightAnswer);
     card1.classList.add('right');
     card2.classList.add('right');
-    // TODO should run a check here if all cards are gone and if yes run a function 'SUCCESS!!!'
-    // future Gaia: I chose this place because after the cards are all right this place is where
-    // the next code will run.
-
   } else {
     card1.addEventListener('animationend', wrongAnswer);
     card2.addEventListener('animationend', wrongAnswer);
@@ -169,13 +165,13 @@ function checkCards() {
 }
 
 // Everything that should happen when clicking a card
-function cardClick() {
+function cardClick() { // May CHANGE dependeing of DOM tree new structure
   if (this.classList.contains('back')) {
     flipCardFront(this);
   } else if (this.classList.contains('front')) {
     flipCardBack(this);
   }
-  let openCards = document.querySelectorAll('.front');
+  let openCards = document.querySelectorAll('.front'); // CHANGE
   if (openCards.length == 2) {
     checkCards();
   }
@@ -200,7 +196,7 @@ function shuffleDeck() {
 
 function rightAnswer() {
   this.classList.add('hidden');
-  this.classList.remove('front', 'right');
+  this.classList.remove('front', 'right'); // CHANGE - may not need to include anything instead of right
   this.removeEventListener('animationend', rightAnswer);
   // checks if all cards are gone and if they are it shows the modal
   const hiddenCards = document.querySelectorAll('.cards .hidden');
@@ -211,9 +207,8 @@ function rightAnswer() {
 
 function wrongAnswer() {
   this.classList.remove('wrong');
-  flipCardBack(this);
+  flipCardBack(this); // may CHANGE
   removeEventListener('animationend', wrongAnswer);
-
 } //what happens to the cards when cards don't match
 
 //---------------------------------------------------
@@ -226,7 +221,7 @@ function startGame() {
   addGame();
   startTimer();
   // set click events to all cards
-  for (let card of cards) {
+  for (let card of cards) { // may CHANGE - check on which element this needs to execute on
     card.addEventListener('click', cardClick);
   }
   startGameButton.classList.add('hidden');
@@ -236,17 +231,17 @@ function startGame() {
 // Everything that should happen when restarting a game
 function restartGame() {
   // Turn all cards back if there are any
-  const openCards = document.querySelectorAll('.front');
+  const openCards = document.querySelectorAll('.front'); // CHANGE
   if (openCards.length > 0) {
     for (let card of openCards) {
-      flipCardBack(card);
+      flipCardBack(card); // may CHANGE
     }
   }
   //remove any relevant hidden styles
   const hiddenCards = document.querySelectorAll('.cards .hidden');
   if (hiddenCards.length > 0) {
     for (let card of hiddenCards) {
-      card.classList.add('back');
+      card.classList.add('back'); // may CHANGE
       card.classList.remove('hidden');
     }
   }

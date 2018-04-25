@@ -34,12 +34,11 @@ ol, ul {
   display: block;
 }
 
-
-.back span {
+.back span { 
   display: none;
 }
 
-
+/* add above styles that include span to figure, .back and .front  */
 
 
 /***********************************
