@@ -19,22 +19,38 @@ ol, ul {
   max-height: 200px;
   border: 1px solid black;
   transform: visibility 5s;
+  perspective: 800px;
 }
 
+.card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
 
-.card, .front, .back {
+.card figure {
   width: 100%;
   height: 100%;
   margin: 0;
+  position: absolute;
+  backface-visibility: hidden;
 }
 
 .front {
-  display: none;
+  background-color: black;
+  display: block;
+  transform: rotateY(180deg);
 }
 
 .back {
   display: block;
   background-color: blue;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
 }
 
 
@@ -110,8 +126,7 @@ ol, ul {
 }
 
 .wrong {
-  animation: wrongAnimation 0.2s;
-  animation-iteration-count: 2;
+  animation: wrongAnimation 2s;
 }
 
 .right {
