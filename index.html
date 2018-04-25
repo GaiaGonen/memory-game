@@ -1,62 +1,142 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet"  type="text/css" href="css/styles.css"
-  </head>
-  <body>
-    <div id="game-board">
-      <ol class="cards">
-        <!-- instead of changing the class for each li object
-        create two figure (?) elements that one is classed .back and one .front
-        maybe a div wrapping the figures inside the card is needed? a flipper. -->
-        <li class="card back"><span></span></li>
-        <li class="card back"><span></span></li>
-        <li class="card back"><span></span></li>
-        <li class="card back"><span></span></li>
-        <li class="card back"><span></span></li>
-        <li class="card back"><span></span></li>
-        <li class="card back"><span></span></li>
-        <li class="card back"><span></span></li>
-        <li class="card back"><span></span></li>
-        <li class="card back"><span></span></li>
-        <li class="card back"><span></span></li>
-        <li class="card back"><span></span></li>
-        <li class="card back"><span></span></li>
-        <li class="card back"><span></span></li>
-        <li class="card back"><span></span></li>
-        <li class="card back"><span></span></li>
-      </ol>
-    </div>
-    <div id="menu">
-      <div id="statistics">
-        <ul>
-          <li id="timer">00:00:00</li>
-          <li id="num-of-games">0</li>
-          <li id="num-of-moves">0</li>
-          <ul id="star-rating">
-            <li id="first-star" class="star">s</li>
-            <li id="second-star" class="star">s</li>
-            <li id="third-star" class="star">s</li>
-          </ul>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet"  type="text/css" href="css/styles.css"
+</head>
+<body>
+  <div id="game-board">
+    <ol class="cards">
+      <!-- instead of changing the class for each li object
+      create two figure (?) elements that one is classed .back and one .front
+      maybe a div wrapping the figures inside the card is needed? a flipper. -->
+      <li class="card">
+        <div class="flipper">
+          <figure class="back"></figure>
+          <figure class="front"></figure>
+        </div>
+      </li>
+      <li class="card">
+        <div class="flipper">
+          <figure class="back"></figure>
+          <figure class="front"></figure>
+        </div>
+      </li>
+      <li class="card">
+        <div class="flipper">
+          <figure class="back"></figure>
+          <figure class="front"></figure>
+        </div>
+      </li>
+      <li class="card">
+        <div class="flipper">
+          <figure class="back"></figure>
+          <figure class="front"></figure>
+        </div>
+      </li>
+      <li class="card">
+        <div class="flipper">
+          <figure class="back"></figure>
+          <figure class="front"></figure>
+        </div>
+      </li>
+      <li class="card">
+        <div class="flipper">
+          <figure class="back"></figure>
+          <figure class="front"></figure>
+        </div>
+      </li>
+      <li class="card">
+        <div class="flipper">
+          <figure class="back"></figure>
+          <figure class="front"></figure>
+        </div>
+      </li>
+      <li class="card">
+        <div class="flipper">
+          <figure class="back"></figure>
+          <figure class="front"></figure>
+        </div>
+      </li>
+      <li class="card">
+        <div class="flipper">
+          <figure class="back"></figure>
+          <figure class="front"></figure>
+        </div>
+      </li>
+      <li class="card">
+        <div class="flipper">
+          <figure class="back"></figure>
+          <figure class="front"></figure>
+        </div>
+      </li>
+      <li class="card">
+        <div class="flipper">
+          <figure class="back"></figure>
+          <figure class="front"></figure>
+        </div>
+      </li>
+      <li class="card">
+        <div class="flipper">
+          <figure class="back"></figure>
+          <figure class="front"></figure>
+        </div>
+      </li>
+      <li class="card">
+        <div class="flipper">
+          <figure class="back"></figure>
+          <figure class="front"></figure>
+        </div>
+      </li>
+      <li class="card">
+        <div class="flipper">
+          <figure class="back"></figure>
+          <figure class="front"></figure>
+        </div>
+      </li>
+      <li class="card">
+        <div class="flipper">
+          <figure class="back"></figure>
+          <figure class="front"></figure>
+        </div>
+      </li>
+      <li class="card">
+        <div class="flipper">
+          <figure class="back"></figure>
+          <figure class="front"></figure>
+        </div>
+      </li>
+    </ol>
+  </div>
+  <div id="menu">
+    <div id="statistics">
+      <ul>
+        <li id="timer">00:00:00</li>
+        <li id="num-of-games">0</li>
+        <li id="num-of-moves">0</li>
+        <ul id="star-rating">
+          <li id="first-star" class="star">s</li>
+          <li id="second-star" class="star">s</li>
+          <li id="third-star" class="star">s</li>
         </ul>
-      </div>
-      <div id="user-interactions">
-        <form>
-          <button id="start-game" type="button" onclick="startGame();">Start Game</button>
-          <button id="restart-game" class="hidden" type="button" onclick="restartGame();">Restart</button>
-          <!--TODO add user interaction to change number of cards,
-          style of cards-->
-        </form>
-      </div>
+      </ul>
     </div>
-    <div id=win_game_modal>
-      <div class=modal_content>
-        <h1>You Won</h1>
-        <p>You got <span class="stars_num">   </span> stars!</p>
-        <button id="restart_after_win" type="button" onclick="playAgain()">Play Again!</button>
-      </div>
+    <div id="user-interactions">
+      <form>
+        <button id="start-game" type="button" onclick="startGame();">Start Game</button>
+        <button id="restart-game" class="hidden" type="button" onclick="restartGame();">Restart</button>
+        <!--TODO add user interaction to change number of cards,
+        style of cards-->
+      </form>
     </div>
-  </body>
-  <script src="js/scripts.js"></script>
+  </div>
+  <div id=win_game_modal>
+    <div class=modal_content>
+      <h1>You Won</h1>
+      <p>You got <span class="stars_num">   </span> stars!</p>
+      <button id="restart_after_win" type="button" onclick="playAgain()">Play Again!</button>
+    </div>
+  </div>
+</body>
+<script src="js/scripts.js"></script>
 </html>
