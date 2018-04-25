@@ -14,31 +14,28 @@ ol, ul {
 * Card Styles
 ***********************************/
 
-.card {
+.container {
   max-width: 150px;
   max-height: 200px;
   border: 1px solid black;
   transform: visibility 5s;
 }
 
-.back {
-  background-color: blue;
-}
 
-.card span {
+.card, .front, .back {
   width: 100%;
   height: 100%;
+  margin: 0;
 }
 
-.front span {
-  display: block;
-}
-
-.back span { 
+.front {
   display: none;
 }
 
-/* add above styles that include span to figure, .back and .front  */
+.back {
+  display: block;
+  background-color: blue;
+}
 
 
 /***********************************
@@ -127,17 +124,17 @@ ol, ul {
 
 /* basic modal code from W3School  */
 #win_game_modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-    padding-top: 30vh;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+  padding-top: 30vh;
 }
 
 .modal_content {
