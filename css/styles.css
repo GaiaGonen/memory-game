@@ -59,32 +59,38 @@ ol, ul {
 ***********************************/
 
 #timer {
-  width: 100px;
-  height: 50px;
-  border: 1px solid black;
+
 }
 
 #num-of-moves {
-  width: 100px;
-  height: 50px;
-  border: 1px solid black;
+
 }
 
 #num-of-games {
-  width: 100px;
-  height: 50px;
-  border: 1px solid black;
+
 }
 
 #star-rating {
-  width: 100px;
-  height: 50px;
-  border: 1px solid black;
-  padding: 0;
+  margin: auto;
+  width: 100%;
 }
 
 .star {
   display: inline;
+}
+
+
+/***********************************
+* User Interaction
+***********************************/
+
+#start-game {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
 }
 
 

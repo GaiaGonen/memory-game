@@ -109,25 +109,23 @@
     </ol>
   </div>
   <div id="menu">
-    <div id="statistics">
-      <ul>
-        <li id="timer">00:00:00</li>
-        <li id="num-of-games">0</li>
-        <li id="num-of-moves">0</li>
+    <div id="container">
+      <ul id="statistics">
+        <li id="timer">Time Elapsed: 00:00:00</li>
+        <li id="num-of-games">Games Played: 0</li>
+        <li id="num-of-moves">Moves Made: 0</li>
         <ul id="star-rating">
-          <li id="first-star" class="star">s</li>
-          <li id="second-star" class="star">s</li>
-          <li id="third-star" class="star">s</li>
+          <li id="first-star" class="star">★</li>
+          <li id="second-star" class="star">★</li>
+          <li id="third-star" class="star">★</li>
         </ul>
       </ul>
     </div>
     <div id="user-interactions">
-      <form>
         <button id="start-game" type="button" onclick="startGame();">Start Game</button>
         <button id="restart-game" class="hidden" type="button" onclick="restartGame();">Restart</button>
         <!--TODO add user interaction to change number of cards,
         style of cards-->
-      </form>
     </div>
   </div>
   <div id=win_game_modal>
