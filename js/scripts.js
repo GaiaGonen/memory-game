@@ -5,11 +5,11 @@
 //---------------------------------------------------
 
 // TODO can all of those be inserted only where they are really beeded?
-const cards = document.querySelectorAll('.card'); // CHANGE
+const cards = document.querySelectorAll('.card');
 
 const timer = document.getElementById('timer');
 
-const cardValue = document.querySelectorAll('.card span'); // CHANGE
+const cardValue = document.querySelectorAll('.front');
 
 const moveCounter = document.getElementById('num-of-moves');
 
@@ -134,44 +134,45 @@ function createCard() {
   // can also add a nice animation
 }
 
-function flipCardBack(card) { // CHANGE should instead of replacing classes hide the front figure
-  card.classList.replace('front', 'back');
-}
+// function flipCard(card) {
+//   if () // CHANGE should instead of replacing classes hide the front figure
+//   card.classList.replace('front', 'back');
+// }
 
-function flipCardFront(card) { // CHANGE should instead of replacing classes hide the back figure
-  let fronts = document.querySelectorAll('.front') // CHANGE should consider how to mark open cards.
-  if  (fronts.length < 2) {
-    card.classList.replace('back', 'front');
+function flipCard(card) {
+  let openCards = document.querySelectorAll('.flipped');
+  if  (openCards.length < 2 || (card.classList.contains('flipped'))) {
+    card.classList.toggle('flipped');
   }
 }
 
 function checkCards() {
-  const openCards = document.querySelectorAll('.front'); // CHANGE should consider how to mark open cards.
+  const openCards = document.querySelectorAll('.flipped');
   const card1 = openCards[0];
   const card2 = openCards[1];
-  const compareValueCard1 = card1.firstChild.style.getPropertyValue('background-color'); // Check if firstChild is still true
-  const compareValueCard2 = card2.firstChild.style.getPropertyValue('background-color');
-  if (compareValueCard1 == compareValueCard2) {
+  const compareValueCard1 = card1.firstElementChild.style.getPropertyValue('background-color');
+  const compareValueCard2 = card2.firstElementChild.style.getPropertyValue('background-color');
+  if (compareValueCard1 == compareValueCard2) { // This should become a function that executes only when flipping card 3d animation ends
     card1.addEventListener('animationend', rightAnswer);
     card2.addEventListener('animationend', rightAnswer);
-    card1.classList.add('right');
-    card2.classList.add('right');
+    setTimeout( function() {
+      card1.classList.add('right');
+      card2.classList.add('right');
+    }, 1000);
   } else {
     card1.addEventListener('animationend', wrongAnswer);
     card2.addEventListener('animationend', wrongAnswer);
-    card1.classList.add('wrong');
-    card2.classList.add('wrong');
+    setTimeout( function() {
+      card1.classList.add('wrong');
+      card2.classList.add('wrong');
+    }, 1000)
   }
 }
 
 // Everything that should happen when clicking a card
-function cardClick() { // May CHANGE dependeing of DOM tree new structure
-  if (this.classList.contains('back')) {
-    flipCardFront(this);
-  } else if (this.classList.contains('front')) {
-    flipCardBack(this);
-  }
-  let openCards = document.querySelectorAll('.front'); // CHANGE
+function cardClick() {
+  flipCard(this);
+  let openCards = document.querySelectorAll('.flipped');
   if (openCards.length == 2) {
     checkCards();
   }
@@ -194,9 +195,10 @@ function shuffleDeck() {
 // Animations
 //---------------------------------------------------
 
+// a function to happen when the animation for ' cards matching ' ends.
 function rightAnswer() {
   this.classList.add('hidden');
-  this.classList.remove('front', 'right'); // CHANGE - may not need to include anything instead of right
+  this.classList.remove('right');
   this.removeEventListener('animationend', rightAnswer);
   // checks if all cards are gone and if they are it shows the modal
   const hiddenCards = document.querySelectorAll('.cards .hidden');
@@ -207,8 +209,8 @@ function rightAnswer() {
 
 function wrongAnswer() {
   this.classList.remove('wrong');
-  flipCardBack(this); // may CHANGE
   removeEventListener('animationend', wrongAnswer);
+  flipCard(this);
 } //what happens to the cards when cards don't match
 
 //---------------------------------------------------
@@ -221,7 +223,7 @@ function startGame() {
   addGame();
   startTimer();
   // set click events to all cards
-  for (let card of cards) { // may CHANGE - check on which element this needs to execute on
+  for (let card of cards) {
     card.addEventListener('click', cardClick);
   }
   startGameButton.classList.add('hidden');
@@ -231,22 +233,22 @@ function startGame() {
 // Everything that should happen when restarting a game
 function restartGame() {
   // Turn all cards back if there are any
-  const openCards = document.querySelectorAll('.front'); // CHANGE
+  const openCards = document.querySelectorAll('.flipped');
   if (openCards.length > 0) {
     for (let card of openCards) {
-      flipCardBack(card); // may CHANGE
+      flipCard(card);
     }
   }
-  //remove any relevant hidden styles
+
+  // show any hidden cards
   const hiddenCards = document.querySelectorAll('.cards .hidden');
   if (hiddenCards.length > 0) {
     for (let card of hiddenCards) {
-      card.classList.add('back'); // may CHANGE
       card.classList.remove('hidden');
     }
   }
 
-  //remove any relevant hidden styles
+  // show any star hidden styles
   const hiddenStars = document.querySelectorAll('#star-rating .hidden');
   if (hiddenStars.length > 0) {
     for (let star of hiddenStars) {
