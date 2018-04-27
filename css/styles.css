@@ -2,6 +2,10 @@
 * Basic Styles
 ************************************/
 
+body {
+  font-family: 'Handlee', cursive;
+}
+
 ol, ul {
   list-style: none;
 }
@@ -89,6 +93,9 @@ ol, ul {
 
 .star {
   display: inline;
+  color: yellow;
+  font-size: 5em;
+  text-shadow: 1px 1px #bf6c00;
 }
 
 
