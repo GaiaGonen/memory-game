@@ -24,7 +24,7 @@ ol, ul {
 .card, .card figure {
   width: 100%;
   height: 100%;
-  border-radius: 50px;
+  border-radius: 20px;
   position: absolute;
 }
 
