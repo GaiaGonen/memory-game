@@ -214,6 +214,9 @@ function wrongAnswer() {
 
 // Everything that should happen when starting the game
 function startGame() {
+  const modal = document.getElementById('start-game-modal');
+  modal.style.display = "none";
+  restartGame();
   shuffleDeck();
   addGame();
   startTimer();
@@ -228,6 +231,7 @@ function startGame() {
 // Everything that should happen when restarting a game
 function restartGame() {
   // Turn all cards back if there are any
+
   const openCards = document.querySelectorAll('.flipped');
   if (openCards.length > 0) {
     for (let card of openCards) {
