@@ -177,12 +177,14 @@ function shuffleDeck() {
   // Values that need to be matched. cards.length should be equal to pairs.length
   let pairs = ["red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue",
   "red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue"];
+  let symbols = ["ǂ", "Ǧ", "ʬ", "Φ","҉", "א", "ګ", "ߝ", "ǂ", "Ǧ", "ʬ", "Φ","҉", "א", "ګ", "ߝ"]
 
+  shuffleArray(symbols);
   shuffleArray(pairs);
   // A loop to set the changeable values for the cards after each shuffle
   for (let i=0; i < cardValue.length; i++) {
     cardValue[i].style.backgroundColor = pairs[i];
-    cardValue[i].parentElement.style.backgroundColor = pairs[i];
+    cardValue[i].innerHTML = symbols[i];
   }
 }
 
