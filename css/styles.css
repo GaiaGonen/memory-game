@@ -19,7 +19,6 @@ ol, ul {
   max-height: 200px;
   transform: visibility 5s;
   perspective: 800px;
-
 }
 
 .card, .card figure {
@@ -27,13 +26,13 @@ ol, ul {
   height: 100%;
   border-radius: 50px;
   position: absolute;
-
 }
 
 .card {
   transform-style: preserve-3d;
   transition: transform 1s;
   box-shadow: -1px -1px 30px #929293;
+  border: 1px solid #000000;
 }
 
 .card figure {
@@ -45,11 +44,16 @@ ol, ul {
   background-color: black;
   display: block;
   transform: rotateY(180deg);
+  box-shadow: 0px 0px 20px #1a1a1a inset;
 }
 
 .back {
   display: block;
-  background-color: blue;
+  background-color: #bdbcbc;
+  background-image: url(../media/pattern.svg);
+  background-size: cover;
+  box-shadow: 0px 0px 10px #d0cece inset;
+
 }
 
 .card.flipped {
