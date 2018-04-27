@@ -163,7 +163,7 @@ mismatch animation is playing */
 ***********************************/
 
 /* basic modal code from W3School  */
-#win_game_modal {
+#win-game-modal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -177,7 +177,7 @@ mismatch animation is playing */
   padding-top: 30vh;
 }
 
-.modal_content {
+.modal-content {
   background-color: white;
   max-width: 30%;
   margin: auto;
@@ -185,7 +185,7 @@ mismatch animation is playing */
   text-align: center;
 }
 
-.modal_content h1 {
+.modal-content h1 {
   background-color: purple;
   background-position: 50% 50%;
 }

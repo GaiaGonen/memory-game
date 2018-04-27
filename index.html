@@ -121,18 +121,20 @@
         </ul>
       </ul>
     </div>
-    <div id="user-interactions">
-        <button id="start-game" type="button" onclick="startGame();">Start Game</button>
-        <button id="restart-game" class="hidden" type="button" onclick="restartGame();">Restart</button>
-        <!--TODO add user interaction to change number of cards,
-        style of cards-->
+    <button id="restart-game" class="hidden" type="button" onclick="restartGame();">Restart</button>
+    <!--TODO add user interaction to change number of cards,
+    style of cards-->
+  </div>
+  <div id="start-game-modal">
+    <div class="modal-content">
+      <button id="start-game" type="button" onclick="startGame();">Start Game</button>
     </div>
   </div>
-  <div id=win_game_modal>
-    <div class=modal_content>
+  <div id="win-game-modal">
+    <div class="modal-content">
       <h1>You Won</h1>
-      <p>You got <span class="stars_num">   </span> stars!</p>
-      <button id="restart_after_win" type="button" onclick="playAgain()">Play Again!</button>
+      <p>You got <span class="stars-num">   </span> stars!</p>
+      <button id="restart-after-win" type="button" onclick="playAgain()">Play Again!</button>
     </div>
   </div>
 </body>
