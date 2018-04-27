@@ -89,8 +89,8 @@ function shuffleArray(array) {
 
 function showModal() {
   const stars = document.querySelectorAll('.star');
-  const modal = document.getElementById('win_game_modal');
-  const starsSpan = document.querySelector('.stars_num');
+  const modal = document.getElementById('win-game-modal');
+  const starsSpan = document.querySelector('.stars-num');
   starsSpan.innerHTML = stars.length;
   modal.style.display = "block";
 }
@@ -267,7 +267,7 @@ function restartGame() {
 }
 
 function playAgain() {
-  const modal = document.getElementById('win_game_modal');
+  const modal = document.getElementById('win-game-modal');
   modal.style.display = "none";
   restartGame();
 }
