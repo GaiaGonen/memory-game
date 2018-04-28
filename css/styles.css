@@ -6,6 +6,11 @@ body {
   font-family: 'Handlee', cursive;
 }
 
+button {
+  font-family: 'Handlee', cursive;
+  border-radius: 10px; 
+}
+
 ol, ul {
   list-style: none;
 }
