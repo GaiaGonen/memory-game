@@ -142,8 +142,12 @@ function checkCards() {
   const openCards = document.querySelectorAll('.flipped');
   const card1 = openCards[0];
   const card2 = openCards[1];
-  const compareValueCard1 = card1.firstElementChild.style.getPropertyValue('background-color');
-  const compareValueCard2 = card2.firstElementChild.style.getPropertyValue('background-color');
+  // uncomment to activate background checking
+  // const compareValueCard1 = card1.firstElementChild.style.getPropertyValue('background-color');
+  // const compareValueCard2 = card2.firstElementChild.style.getPropertyValue('background-color');
+  const valueToCompare = document.querySelectorAll('.flipped i');
+  const compareValueCard1 = valueToCompare[0].getAttribute('class');
+  const compareValueCard2 = valueToCompare[1].getAttribute('class');
   if (compareValueCard1 == compareValueCard2) { // This should become a function that executes only when flipping card 3d animation ends
     card1.addEventListener('animationend', rightAnswer);
     card2.addEventListener('animationend', rightAnswer);
@@ -175,8 +179,9 @@ function cardClick() {
 
 function shuffleDeck() {
   // Values that need to be matched. cards.length should be equal to pairs.length
-  let pairs = ["red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue",
-  "red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue"];
+  // uncomment to apply background to shuffled decks
+  // let pairs = ["red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue",
+  // "red", "purple", "green", "yellow", "orange", "pink", "deeppink", "lightblue"];
   let symbols = [
     'fab fa-docker',
     'fas fa-dna',
@@ -197,10 +202,12 @@ function shuffleDeck() {
   ];
 
   shuffleArray(symbols);
-  shuffleArray(pairs);
+  // uncomment to apply background to shuffled decks
+  // shuffleArray(pairs);
   // A loop to set the changeable values for the cards after each shuffle
   for (let i=0; i < cardValue.length; i++) {
-    cardValue[i].style.backgroundColor = pairs[i];
+    // uncomment to apply background to shuffled decks
+    // cardValue[i].style.backgroundColor = pairs[i];
     let elementi = document.createElement("I");
     elementi.className = symbols[i];
     // make sure every card.front has only one child
