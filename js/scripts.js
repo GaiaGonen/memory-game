@@ -140,30 +140,32 @@ function flipCard(card) {
 
 function checkCards() {
   const openCards = document.querySelectorAll('.flipped');
-  const card1 = openCards[0];
-  const card2 = openCards[1];
-  // uncomment to activate background checking
-  // const compareValueCard1 = card1.firstElementChild.style.getPropertyValue('background-color');
-  // const compareValueCard2 = card2.firstElementChild.style.getPropertyValue('background-color');
-  const valueToCompare = document.querySelectorAll('.flipped i');
-  const compareValueCard1 = valueToCompare[0].getAttribute('class');
-  const compareValueCard2 = valueToCompare[1].getAttribute('class');
-  if (compareValueCard1 == compareValueCard2) { // This should become a function that executes only when flipping card 3d animation ends
-    card1.addEventListener('animationend', rightAnswer);
-    card2.addEventListener('animationend', rightAnswer);
+  if (openCards.length == 2) {
+    const card1 = openCards[0];
+    const card2 = openCards[1];
+    // uncomment to activate background checking
+    // const compareValueCard1 = card1.firstElementChild.style.getPropertyValue('background-color');
+    // const compareValueCard2 = card2.firstElementChild.style.getPropertyValue('background-color');
+    const valueToCompare = document.querySelectorAll('.flipped i');
+    const compareValueCard1 = valueToCompare[0].getAttribute('class');
+    const compareValueCard2 = valueToCompare[1].getAttribute('class');
+    if (compareValueCard1 == compareValueCard2) { // This should become a function that executes only when flipping card 3d animation ends
+      card1.addEventListener('animationend', rightAnswer);
+      card2.addEventListener('animationend', rightAnswer);
 
-    setTimeout( function() {
-      card1.classList.add('right');
-      card2.classList.add('right');
-    }, 1000);
-  } else {
+      setTimeout( function() {
+        card1.classList.add('right');
+        card2.classList.add('right');
+      }, 1000);
+    } else {
 
-    card1.addEventListener('animationend', wrongAnswer);
-    card2.addEventListener('animationend', wrongAnswer);
-    setTimeout( function() {
-      card1.classList.add('wrong');
-      card2.classList.add('wrong');
-    }, 1000)
+      card1.addEventListener('animationend', wrongAnswer);
+      card2.addEventListener('animationend', wrongAnswer);
+      setTimeout( function() {
+        card1.classList.add('wrong');
+        card2.classList.add('wrong');
+      }, 1000)
+    }
   }
 }
 
