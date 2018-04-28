@@ -135,7 +135,7 @@ function createCard() {
 }
 
 function flipCard(card) {
-    card.classList.toggle('flipped');
+  card.classList.toggle('flipped');
 }
 
 function checkCards() {
@@ -203,6 +203,11 @@ function shuffleDeck() {
     cardValue[i].style.backgroundColor = pairs[i];
     let elementi = document.createElement("I");
     elementi.className = symbols[i];
+    // make sure every card.front has only one child
+    // code from https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
+    while (cardValue[i].firstChild) {
+      cardValue[i].removeChild(cardValue[i].firstChild);
+    }
     cardValue[i].appendChild(elementi);
   }
 }
