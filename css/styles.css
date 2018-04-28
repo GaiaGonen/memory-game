@@ -24,6 +24,8 @@ ol, ul {
 ***********************************/
 
 .container {
+  min-height: 70px;
+  min-width: 80px;
   max-width: 150px;
   max-height: 200px;
   transform: visibility 5s;
@@ -61,7 +63,7 @@ ol, ul {
 
 .card i {
   text-shadow: 1px 1px 5px #FFFFFF;
-  font-size: 8vw;
+  font-size: 5vw;
 }
 
 /* .card i::before {
