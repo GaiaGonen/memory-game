@@ -13,6 +13,7 @@ button {
 
 ol, ul {
   list-style: none;
+  padding-left: 0;
 }
 
 .hidden {
@@ -101,14 +102,14 @@ ol, ul {
 }
 
 #star-rating {
-  margin: auto;
+  display: inline;
   width: 100%;
 }
 
 .star {
   display: inline;
   color: yellow;
-  font-size: 5em;
+  font-size: 1em;
   text-shadow: 1px 1px #bf6c00;
 }
 
@@ -124,20 +125,38 @@ ol, ul {
 ***********************************/
 
 #game-board {
-  width: 70%;
+  width: 90%;
   float: left;
   height: 100vh;
+  margin: auto;
 }
 
 #game-board ol {
+  margin: auto;
   display: grid;
   grid: repeat(4, 22vh) / 25% 25% 25% 25%;
   grid-gap: 10px;
 }
 
 #menu {
-  float: right;
-  width: 30%;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  align-content: stretch;
+}
+
+#statistics {
+  display: flex;
+  flex-wrap: wrap;
+  width: 75%;
+}
+
+#star-rating, #num-of-games-container, #num-of-moves-container, #timer-container{
+  width: 25%;
+}
+
+#restart-game {
+  width: 25%;
 }
 
 /************************************
@@ -227,3 +246,9 @@ mismatch animation is playing */
   background-color: purple;
   background-position: 50% 50%;
 }
+
+/********************************
+* Media Queries
+********************************/
+
+@media screen and (max-width)

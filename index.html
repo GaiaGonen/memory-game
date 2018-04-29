@@ -7,6 +7,21 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 </head>
 <body>
+  <div id="menu">
+      <ul id="statistics">
+        <li id="timer-container">Time Elapsed:<span id="timer"> 00:00:00</span></li>
+        <li id="num-of-games-container">Games Played: <span id="num-of-games">0</span></li>
+        <li id="num-of-moves-container">Moves Made: <span id="num-of-moves">0</span></li>
+        <ul id="star-rating">
+          <li id="first-star" class="star">★</li>
+          <li id="second-star" class="star">★</li>
+          <li id="third-star" class="star">★</li>
+        </ul>
+      </ul>
+    <button id="restart-game" class="hidden" type="button" onclick="restartGame();">Restart</button>
+    <!--TODO add user interaction to change number of cards,
+    style of cards-->
+  </div>
   <div id="game-board">
     <ol class="cards">
       <!-- instead of changing the class for each li object
@@ -109,23 +124,6 @@
         </div>
       </li>
     </ol>
-  </div>
-  <div id="menu">
-    <div id="container">
-      <ul id="statistics">
-        <li id="timer">Time Elapsed: 00:00:00</li>
-        <li id="num-of-games">Games Played: 0</li>
-        <li id="num-of-moves">Moves Made: 0</li>
-        <ul id="star-rating">
-          <li id="first-star" class="star">★</li>
-          <li id="second-star" class="star">★</li>
-          <li id="third-star" class="star">★</li>
-        </ul>
-      </ul>
-    </div>
-    <button id="restart-game" class="hidden" type="button" onclick="restartGame();">Restart</button>
-    <!--TODO add user interaction to change number of cards,
-    style of cards-->
   </div>
   <div id="start-game-modal">
     <div class="modal-content">
