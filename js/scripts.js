@@ -172,7 +172,7 @@ function checkCards() {
 // Everything that should happen when clicking a card
 function cardClick() {
   let openCards = document.querySelectorAll('.flipped');
-  if  (openCards.length < 2 || (card.classList.contains('flipped'))) {
+  if  (openCards.length < 2 ) {
     flipCard(this);
     checkCards();
   }
