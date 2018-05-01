@@ -266,7 +266,6 @@ function startGame() {
 // Everything that should happen when restarting a game
 function restartGame() {
   // Turn all cards back if there are any
-
   const openCards = document.querySelectorAll('.flipped');
   if (openCards.length > 0) {
     for (let card of openCards) {
