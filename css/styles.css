@@ -7,16 +7,17 @@ body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  font-size: 40px;
+  font-size: 200%;
   font-weight: 400;
   padding: 0;
   margin: 0;
 }
 
 button {
-  font-family: 'Handlee', cursive;
+  font-family: 'Titillium Web', sans-serif;
   border-radius: 10px;
-  font-size: 40px;
+  font-size: 200%;
+  font-weight: 400;
 }
 
 ol, ul {
@@ -33,7 +34,7 @@ ol, ul {
 ***********************************/
 
 .container {
-  min-height: 70px;
+  min-height: 150px;
   min-width: 80px;
   max-width: 200px;
   max-height: 300px;
@@ -52,7 +53,7 @@ ol, ul {
   transform-style: preserve-3d;
   transition: transform 1s;
   box-shadow: 2px 2px 15px #1b1b1b;
-  border: 1px solid #000000;
+  border: 2px solid #000000;
 }
 
 .card figure {
@@ -141,7 +142,6 @@ ol, ul {
 
 #game-board {
   width: 90%;
-  float: left;
   height: 100vh;
   margin: auto;
 }
@@ -159,7 +159,7 @@ ol, ul {
   align-items: center;
   background-color: black;
   width: 100%;
-  margin-bottom: 10%;
+  margin-bottom: 20px;
 }
 
 
@@ -255,4 +255,40 @@ mismatch animation is playing */
 * Media Queries
 ********************************/
 
-@media screen and (max-width
+@media screen and (min-width: 800px) {
+  body {
+    font-size: 100%;
+  }
+
+  #menu {
+    display: block;
+    width: 20%;
+    order: 1;
+    height: auto;
+    padding-top: 10%;
+  }
+
+  #game-board {
+    width: 60%;
+    padding: 0;
+    margin: auto;
+    padding-top: 20px;
+  }
+
+  #restart-game {
+    height: auto;
+    margin: auto;
+    display: block;
+    font-size: 100%;
+    margin-top: 10%;
+  }
+
+  #star-rating {
+    display: inline-block;
+  }
+
+  .container {
+    max-width: 150px;
+    max-height: 200px;
+  }
+}
