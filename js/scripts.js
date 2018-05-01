@@ -311,3 +311,7 @@ function playAgain() {
 }
 
 //TODO pause button?
+// Stop timer when game is Won
+// Return time played in hours minute and seconds - you won 3 stars and played for 20 minutes and 3 seconds!
+// Add IE 11 support
+// Check ff
