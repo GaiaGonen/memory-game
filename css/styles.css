@@ -3,17 +3,23 @@
 ************************************/
 
 body {
-  font-family: 'Handlee', cursive;
+  font-family: 'Neucha', cursive;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  font-size: 40px;
+  font-weight: 400;
 }
 
 button {
   font-family: 'Handlee', cursive;
   border-radius: 10px;
+  font-size: 40px;
 }
 
 ol, ul {
   list-style: none;
-  padding-left: 0;
+  padding-left: auto;
 }
 
 .hidden {
@@ -143,6 +149,8 @@ ol, ul {
   flex-wrap: nowrap;
   width: 100%;
   align-content: stretch;
+  padding: 20px 10px;
+  margin: auto;
 }
 
 #statistics {
@@ -156,7 +164,7 @@ ol, ul {
 }
 
 #restart-game {
-  width: 25%;
+  /* width: 25%; */
 }
 
 /************************************
