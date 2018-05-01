@@ -3,12 +3,14 @@
 ************************************/
 
 body {
-  font-family: 'Neucha', cursive;
+  font-family: 'Titillium Web', sans-serif;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   font-size: 40px;
   font-weight: 400;
+  padding: 0;
+  margin: 0;
 }
 
 button {
@@ -19,7 +21,7 @@ button {
 
 ol, ul {
   list-style: none;
-  padding-left: auto;
+  padding-left: 0;
 }
 
 .hidden {
@@ -33,8 +35,8 @@ ol, ul {
 .container {
   min-height: 70px;
   min-width: 80px;
-  max-width: 150px;
-  max-height: 200px;
+  max-width: 200px;
+  max-height: 300px;
   transform: visibility 5s;
   perspective: 800px;
 }
@@ -70,12 +72,9 @@ ol, ul {
 
 .card i {
   text-shadow: 1px 1px 5px #FFFFFF;
-  font-size: 5vw;
+  font-size: 200%;
 }
 
-/* .card i::before {
-  vertical-align: middle;
-} */
 
 .back {
   display: block;
@@ -94,6 +93,10 @@ ol, ul {
 /***********************************
 * Statistics Styles
 ***********************************/
+#statistics {
+  color: white;
+  margin-left: 10%;
+}
 
 #timer {
 
@@ -107,15 +110,21 @@ ol, ul {
 
 }
 
+#restart-game {
+    height: 50%;
+    margin-right: 10%;
+}
+
 #star-rating {
-  display: inline;
+  display: flex;
+  flex-direction: column-reverse;
   width: 100%;
+  margin-left: 10%;
 }
 
 .star {
   display: inline;
   color: yellow;
-  font-size: 1em;
   text-shadow: 1px 1px #bf6c00;
 }
 
@@ -140,32 +149,19 @@ ol, ul {
 #game-board ol {
   margin: auto;
   display: grid;
-  grid: repeat(4, 22vh) / 25% 25% 25% 25%;
+  grid: repeat(4, 22vh) / repeat(4, 1fr);
   grid-gap: 10px;
 }
 
 #menu {
-  display: flex;
-  flex-wrap: nowrap;
+  display: grid;
+  grid: 1fr / 3fr 1fr 2fr;
+  align-items: center;
+  background-color: black;
   width: 100%;
-  align-content: stretch;
-  padding: 20px 10px;
-  margin: auto;
+  margin-bottom: 10%;
 }
 
-#statistics {
-  display: flex;
-  flex-wrap: wrap;
-  width: 75%;
-}
-
-#star-rating, #num-of-games-container, #num-of-moves-container, #timer-container{
-  width: 25%;
-}
-
-#restart-game {
-  /* width: 25%; */
-}
 
 /************************************
 * Keyframes, Transitions and Animations
@@ -259,4 +255,4 @@ mismatch animation is playing */
 * Media Queries
 ********************************/
 
-@media screen and (max-width)
+@media screen and (max-width
