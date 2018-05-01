@@ -7,7 +7,7 @@ body {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  font-size: 200%;
+  font-size: 100%;
   font-weight: 400;
   padding: 0;
   margin: 0;
@@ -16,7 +16,7 @@ body {
 button {
   font-family: 'Titillium Web', sans-serif;
   border-radius: 10px;
-  font-size: 200%;
+  font-size: 100%;
   font-weight: 400;
 }
 
@@ -34,8 +34,8 @@ ol, ul {
 ***********************************/
 
 .container {
-  min-height: 150px;
-  min-width: 80px;
+  min-height: 100px;
+  min-width: 50px;
   max-width: 200px;
   max-height: 300px;
   transform: visibility 5s;
@@ -141,15 +141,15 @@ ol, ul {
 ***********************************/
 
 #game-board {
-  width: 90%;
+  width: 80vw;
   height: 100vh;
-  margin: auto;
+  /* margin: auto; */
 }
 
 #game-board ol {
-  margin: auto;
+  /* margin: auto; */
   display: grid;
-  grid: repeat(4, 22vh) / repeat(4, 1fr);
+  grid: repeat(4, 1fr) / repeat(4, 1fr);
   grid-gap: 10px;
 }
 
@@ -158,7 +158,7 @@ ol, ul {
   grid: 1fr / 3fr 1fr 2fr;
   align-items: center;
   background-color: black;
-  width: 100%;
+  width: 95vw;
   margin-bottom: 20px;
 }
 
