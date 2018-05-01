@@ -10,7 +10,10 @@
 #game-board ol {
   /* margin: auto; */
   display: grid;
+  display: -ms-grid;
   grid: repeat(4, 1fr) / repeat(4, 1fr);
+  -ms-grid: 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
+  -ms-grid-gap: 10px; 
   grid-gap: 10px;
 }
 
