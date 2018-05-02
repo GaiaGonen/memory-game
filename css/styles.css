@@ -13,7 +13,7 @@
   display: -ms-grid;
   grid: repeat(4, 1fr) / repeat(4, 1fr);
   -ms-grid: 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
-  -ms-grid-gap: 10px; 
+  -ms-grid-gap: 10px;
   grid-gap: 10px;
 }
 
@@ -126,18 +126,6 @@ ol, ul {
   margin-left: 10%;
 }
 
-#timer {
-
-}
-
-#num-of-moves {
-
-}
-
-#num-of-games {
-
-}
-
 #restart-game {
     height: 50%;
     margin-right: 10%;
@@ -155,14 +143,6 @@ ol, ul {
   color: yellow;
   text-shadow: 1px 1px #bf6c00;
 }
-
-
-/***********************************
-* User Interaction
-***********************************/
-
-
-
 
 
 /************************************
@@ -202,7 +182,7 @@ mismatch animation is playing */
 }
 
 /***********************************
-* Win Game Modal
+*  Game Modals
 ***********************************/
 
 /* basic modal code from W3School  */
@@ -237,17 +217,19 @@ mismatch animation is playing */
 
 .modal-content {
   background-color: white;
-  max-width: 30%;
+  max-width: 50%;
   margin: auto;
   padding: 40px 0;
   text-align: center;
 }
 
+/* TODO change selectors to indicate modal  */
 #start-game {
   width: 100%;
   height: 100%;
 }
 
+/* TODO change this selector */
 .modal-content h1 {
   background-color: purple;
   background-position: 50% 50%;

@@ -230,9 +230,10 @@ function rightAnswer() {
   this.classList.add('hidden');
   this.classList.remove('right', 'flipped');
   this.removeEventListener('animationend', rightAnswer);
-  // checks if all cards are gone and if they are it shows the modal
+  // checks if all cards are gone and if they are it shows the win modal as the game is won
   const hiddenCards = document.querySelectorAll('.cards .hidden');
   if (hiddenCards.length == cards.length) {
+    stopTimer();
     showModal();
   }
 } //what happens to the cards when cards match
