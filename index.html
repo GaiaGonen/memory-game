@@ -8,22 +8,22 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 </head>
 <body>
-  <div id="menu">
-    <ul id="statistics">
-      <li id="timer-container">Time&nbsp;Elapsed: <span id="timer">00:00:00</span></li>
-      <li id="num-of-games-container">Games Played: <span id="num-of-games">0</span></li>
-      <li id="num-of-moves-container">Moves Made: <span id="num-of-moves">0</span></li>
+  <div class="menu">
+    <ul class="statistics">
+      <li class="timer-container">Time&nbsp;Elapsed: <span class="timer">00:00:00</span></li>
+      <li class="num-of-games-container">Games Played: <span class="num-of-games">0</span></li>
+      <li class="num-of-moves-container">Moves Made: <span class="num-of-moves">0</span></li>
     </ul>
-    <ul id="star-rating">
-      <li id="first-star" class="star">★</li>
-      <li id="second-star" class="star">★</li>
-      <li id="third-star" class="star">★</li>
+    <ul class="star-rating">
+      <li class="first-star" class="star">★</li>
+      <li class="second-star" class="star">★</li>
+      <li class="third-star" class="star">★</li>
     </ul>
-    <button id="restart-game" class="hidden" type="button" onclick="restartGame();">Restart</button>
+    <button class="restart-game" class="hidden" type="button" onclick="restartGame();">Restart</button>
     <!--TODO add user interaction to change number of cards,
     style of cards-->
   </div>
-  <div id="game-board">
+  <div class="game-board">
     <ol class="cards">
       <!-- instead of changing the class for each li object
       create two figure (?) elements that one is classed .back and one .front
@@ -126,17 +126,17 @@
       </li>
     </ol>
   </div>
-  <div id="start-game-modal">
+  <div class="start-game-modal">
     <div class="modal-content">
-      <button id="start-game" type="button" onclick="startGame();">Start Game</button>
+      <button class="start-game" type="button" onclick="startGame();">Start Game</button>
     </div>
   </div>
-  <div id="win-game-modal">
+  <div class="win-game-modal">
     <div class="modal-content">
       <h1>You Won</h1>
       <p class="stars-num"> </p>
       <p class="time-played"> </p>
-      <button id="restart-after-win" type="button" onclick="playAgain()">Play Again!</button>
+      <button class="restart-after-win" type="button" onclick="playAgain()">Play Again!</button>
     </div>
   </div>
 </body>

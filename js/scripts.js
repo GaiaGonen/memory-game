@@ -8,19 +8,19 @@
 // TODO make const big letters
 const cards = document.querySelectorAll('.card');
 
-const timer = document.getElementById('timer');
+const timer = document.querySelector('.timer');
 
 const cardValue = document.querySelectorAll('.front');
 
-const moveCounter = document.getElementById('num-of-moves');
+const moveCounter = document.querySelector('.num-of-moves');
 
-const restartButton = document.getElementById('restart-game');
+const restartButton = document.querySelector('.restart-game');
 
-const startGameButton = document.getElementById('start-game');
+const startGameButton = document.querySelector('.start-game');
 
-const gameCounter = document.getElementById('num-of-games');
+const gameCounter = document.querySelector('.num-of-games');
 
-const starRating = document.getElementById('star-rating')
+const starRating = document.querySelector('.star-rating')
 
 let moves = 0;
 
@@ -119,7 +119,7 @@ function getTimeString() {
 
 function showModal() {
   const stars = document.querySelectorAll('.star');
-  const modal = document.getElementById('win-game-modal');
+  const modal = document.querySelector('.win-game-modal');
   const starsSpan = document.querySelector('.stars-num');
   const timePlayed = document.querySelector('.time-played');
   if (stars.length > 0) {
@@ -149,11 +149,11 @@ function addGame() {
 function checkStars() {
   const stars = document.querySelectorAll('.star')
   if (moves > 25 && moves <= 50) {
-    document.getElementById('first-star').classList.replace('star', 'hidden');
+    document.querySelector('.first-star').classList.replace('star', 'hidden');
   } else if (moves > 60 && moves <= 75) {
-    document.getElementById('second-star').classList.replace('star', 'hidden');
+    document.querySelector('.second-star').classList.replace('star', 'hidden');
   } else if (moves > 75) {
-    document.getElementById('third-star').classList.replace('star', 'hidden');
+    document.querySelector('.third-star').classList.replace('star', 'hidden');
   }
 }
 
@@ -286,7 +286,7 @@ function wrongAnswer() {
 
 // Everything that should happen when starting the game
 function startGame() {
-  const modal = document.getElementById('start-game-modal');
+  const modal = document.querySelector('.start-game-modal');
   modal.style.display = "none";
   restartGame();
   shuffleDeck();
@@ -319,7 +319,7 @@ function restartGame() {
   }
 
   // show any star hidden styles
-  const hiddenStars = document.querySelectorAll('#star-rating .hidden');
+  const hiddenStars = document.querySelectorAll('.star-rating .hidden');
   if (hiddenStars.length > 0) {
     for (let star of hiddenStars) {
       star.classList.add('star');
@@ -342,7 +342,7 @@ function restartGame() {
 }
 
 function playAgain() {
-  const modal = document.getElementById('win-game-modal');
+  const modal = document.querySelector('.win-game-modal');
   modal.style.display = "none";
   restartGame();
 }

@@ -2,13 +2,13 @@
 * Layout
 ***********************************/
 
-#game-board {
+.game-board {
   width: 80vw;
   height: 100vh;
 }
 
 /* TODO change selector */
-#game-board ol {
+.game-board ol {
   /* margin: auto; */
   display: grid;
   display: -ms-grid;
@@ -18,7 +18,7 @@
   grid-gap: 10px;
 }
 
-#menu {
+.menu {
   display: grid;
   grid: 1fr / 3fr 1fr 2fr;
   align-items: center;
@@ -122,17 +122,17 @@ ol, ul {
 /***********************************
 * Statistics Styles
 ***********************************/
-#statistics {
+.statistics {
   color: white;
   margin-left: 10%;
 }
 
-#restart-game {
+.restart-game {
     height: 50%;
     margin-right: 10%;
 }
 
-#star-rating {
+.star-rating {
   display: flex;
   flex-direction: column-reverse;
   width: 100%;
@@ -187,7 +187,7 @@ mismatch animation is playing */
 ***********************************/
 
 /* basic modal code from W3School  */
-#win-game-modal {
+.win-game-modal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -202,7 +202,7 @@ mismatch animation is playing */
 }
 
 /* TODO make one style for modals */
-#start-game-modal {
+.start-game-modal {
   display: block;
   position: fixed;
   z-index: 1;
@@ -228,7 +228,7 @@ mismatch animation is playing */
 }
 
 /* TODO change selectors to indicate modal  */
-#start-game {
+.start-game {
   width: 100%;
   height: 100%;
 }
@@ -249,7 +249,7 @@ mismatch animation is playing */
     font-size: 100%;
   }
 
-  #menu {
+  .menu {
     display: block;
     width: 20%;
     order: 1;
@@ -257,7 +257,7 @@ mismatch animation is playing */
     padding-top: 10%;
   }
 
-  #game-board {
+  .game-board {
     width: 70%;
     padding: 0;
     margin: auto;
@@ -269,7 +269,7 @@ mismatch animation is playing */
       height: 90vh;
   }
 
-  #restart-game {
+  .restart-game {
     height: auto;
     margin: auto;
     display: block;
@@ -277,7 +277,7 @@ mismatch animation is playing */
     margin-top: 10%;
   }
 
-  #star-rating {
+  .star-rating {
     display: inline-block;
   }
 
