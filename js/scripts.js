@@ -111,6 +111,8 @@ function getTimeString() {
     returnTimeString += mins + ' minutes and ' + secs + ' seconds.';
   } else if (hrs == 0 && mins > 0 && secs == 0) {
     returnTimeString += mins + ' minutes.';
+  } else {
+    returnTimeString = 'You did not play at all :/'
   }
   return returnTimeString;
 }

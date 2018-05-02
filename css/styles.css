@@ -7,6 +7,7 @@
   height: 100vh;
 }
 
+/* TODO change selector */
 #game-board ol {
   /* margin: auto; */
   display: grid;
@@ -234,7 +235,8 @@ mismatch animation is playing */
 
 /* TODO change this selector */
 .modal-content h1 {
-  background-color: purple;
+  color: #FFF;
+  background-color: #000;
   background-position: 50% 50%;
 }
 
