@@ -7,15 +7,11 @@
   height: 100vh;
 }
 
-/* TODO change selector */
-.game-board ol {
-  /* margin: auto; */
+.cards {
   display: grid;
-  display: -ms-grid;
   grid: repeat(4, 1fr) / repeat(4, 1fr);
-  -ms-grid: 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
-  -ms-grid-gap: 10px;
   grid-gap: 10px;
+  height: 70vh;
 }
 
 .menu {
@@ -26,6 +22,7 @@
   width: 95vw;
   margin-bottom: 20px;
 }
+
 /************************************
 * Basic Styles
 ************************************/
@@ -43,9 +40,10 @@ body {
 
 button {
   font-family: 'Titillium Web', sans-serif;
-  border-radius: 10px;
+  border-radius: 15px;
   font-size: 100%;
   font-weight: 400;
+  background-color: #FFF;
 }
 
 ol, ul {
@@ -81,7 +79,7 @@ ol, ul {
   transform-style: preserve-3d;
   transition: transform 1s;
   box-shadow: 2px 2px 15px #1b1b1b;
-  border: 2px solid #000000;
+  border: 2px solid #000;
 }
 
 .card figure {
@@ -99,9 +97,10 @@ ol, ul {
   justify-content: center;
 }
 
+/* The styles for the icons */
 .card i {
   text-shadow: 1px 1px 5px #FFFFFF;
-  font-size: 200%;
+  font-size: 2em;
 }
 
 
@@ -127,9 +126,9 @@ ol, ul {
   margin-left: 10%;
 }
 
-.restart-game {
-    height: 50%;
-    margin-right: 10%;
+.restart-game-button {
+  height: 50%;
+  margin-right: 10%;
 }
 
 .star-rating {
@@ -187,8 +186,7 @@ mismatch animation is playing */
 ***********************************/
 
 /* basic modal code from W3School  */
-.win-game-modal {
-  display: none;
+.modal {
   position: fixed;
   z-index: 1;
   left: 0;
@@ -201,19 +199,12 @@ mismatch animation is playing */
   padding-top: 30vh;
 }
 
-/* TODO make one style for modals */
+.win-game-modal {
+  display: none;
+}
+
 .start-game-modal {
   display: block;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0,0,0);
-  background-color: rgba(0,0,0,0.4);
-  padding-top: 30vh;
 }
 
 
@@ -228,13 +219,13 @@ mismatch animation is playing */
 }
 
 /* TODO change selectors to indicate modal  */
-.start-game {
-  width: 100%;
+.start-game-button {
+  width: 80%;
   height: 100%;
 }
 
 /* TODO change this selector */
-.modal-content h1 {
+.modal-heading {
   color: #FFF;
   background-color: #000;
   background-position: 50% 50%;
@@ -245,10 +236,6 @@ mismatch animation is playing */
 ********************************/
 
 @media screen and (min-width: 800px) {
-  body {
-    font-size: 100%;
-  }
-
   .menu {
     display: block;
     width: 20%;
@@ -266,10 +253,10 @@ mismatch animation is playing */
   }
 
   .cards {
-      height: 90vh;
+    height: 90vh;
   }
 
-  .restart-game {
+  .restart-game-button {
     height: auto;
     margin: auto;
     display: block;
@@ -286,7 +273,10 @@ mismatch animation is playing */
     min-width: 80px;
     max-width: 150px;
     max-height: 200px;
+  }
 
+  .card i {
+    font-size: 3em;
   }
 }
 

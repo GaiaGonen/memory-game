@@ -4,23 +4,21 @@
 //
 //---------------------------------------------------
 
-// TODO can all of those be inserted only where they are really beeded?
-// TODO make const big letters
-const cards = document.querySelectorAll('.card');
+const CARDS = document.querySelectorAll('.card');
 
-const timer = document.querySelector('.timer');
+const TIMER = document.querySelector('.timer');
 
-const cardValue = document.querySelectorAll('.front');
+const CARD_VALUE = document.querySelectorAll('.front');
 
-const moveCounter = document.querySelector('.num-of-moves');
+const MOVE_COUNTER = document.querySelector('.num-of-moves');
 
-const restartButton = document.querySelector('.restart-game');
+const RESTART_BUTTON = document.querySelector('.restart-game-button');
 
-const startGameButton = document.querySelector('.start-game');
+const START_GAME_BUTTON = document.querySelector('.start-game-button');
 
-const gameCounter = document.querySelector('.num-of-games');
+const GAME_COUNTER = document.querySelector('.num-of-games');
 
-const starRating = document.querySelector('.star-rating')
+const STAR_RATING = document.querySelector('.star-rating')
 
 let moves = 0;
 
@@ -43,7 +41,7 @@ function startTimer() {
   mins = 0;
   hrs = 0;
   let displaySecs = '0' + secs, displayMins = '0' + mins, displayHrs = '0' + hrs;
-  timer.innerHTML = displayHrs + ':' + displayMins + ':' + displaySecs;
+  TIMER.innerHTML = displayHrs + ':' + displayMins + ':' + displaySecs;
   timerCounter = setInterval( function() {
     //conditions to make the seconds and minutes to count only to 59 and then add
     //a minute or an hour respectivley
@@ -74,7 +72,7 @@ function startTimer() {
     } else {
       displayHrs = hrs;
     }
-    timer.innerHTML = displayHrs + ':' + displayMins + ':' + displaySecs;
+    TIMER.innerHTML = displayHrs + ':' + displayMins + ':' + displaySecs;
   }, 1000);
 }
 
@@ -118,17 +116,17 @@ function getTimeString() {
 }
 
 function showModal() {
-  const stars = document.querySelectorAll('.star');
-  const modal = document.querySelector('.win-game-modal');
-  const starsSpan = document.querySelector('.stars-num');
-  const timePlayed = document.querySelector('.time-played');
-  if (stars.length > 0) {
-    starsSpan.innerHTML = 'You got ' + stars.length + ' stars!';
+  const STARS = document.querySelectorAll('.star');
+  const MODAL = document.querySelector('.win-game-modal');
+  const STARS_SPAN = document.querySelector('.stars-num');
+  const TIME_PLAYED = document.querySelector('.time-played');
+  if (STARS.length > 0) {
+    STARS_SPAN.innerHTML = 'You got ' + STARS.length + ' stars!';
   } else {
-    starsSpan.innerHTML = 'You got no stars :(';
+    STARS_SPAN.innerHTML = 'You got no stars :(';
   }
-  timePlayed.innerHTML = getTimeString();
-  modal.style.display = "block";
+  TIME_PLAYED.innerHTML = getTimeString();
+  MODAL.style.display = "block";
 }
 
 //---------------------------------------------------
@@ -137,17 +135,17 @@ function showModal() {
 
 function addMove() {
   moves++;
-  moveCounter.innerHTML = moves;
+  MOVE_COUNTER.innerHTML = moves;
   checkStars();
 }
 
 function addGame() {
   games++;
-  gameCounter.innerHTML = games;
+  GAME_COUNTER.innerHTML = games;
 }
 
 function checkStars() {
-  const stars = document.querySelectorAll('.star')
+  const STARS = document.querySelectorAll('.star')
   if (moves > 25 && moves <= 50) {
     document.querySelector('.first-star').classList.replace('star', 'hidden');
   } else if (moves > 60 && moves <= 75) {
@@ -161,45 +159,36 @@ function checkStars() {
 // Card functionality
 //---------------------------------------------------
 
-function createCard() {
-  // TODO make the cards built from scratch, appended to a semi document and only then
-  // distrubited across the board.
-  // this function should create the element and append it to a created-on-the-fly semi document
-  // in shuffle deck the cards should be created in the loop - create card- add the value -
-  // nicely done!
-  // can also add a nice animation
-}
-
 function flipCard(card) {
   card.classList.toggle('flipped');
 }
 
 function checkCards() {
-  const openCards = document.querySelectorAll('.flipped');
-  if (openCards.length == 2) {
-    const card1 = openCards[0];
-    const card2 = openCards[1];
+  const OPEN_CARDS = document.querySelectorAll('.flipped');
+  if (OPEN_CARDS.length == 2) {
+    const CARD1 = OPEN_CARDS[0];
+    const CARD2 = OPEN_CARDS[1];
     // uncomment to activate background checking
     // const compareValueCard1 = card1.firstElementChild.style.getPropertyValue('background-color');
     // const compareValueCard2 = card2.firstElementChild.style.getPropertyValue('background-color');
-    const valueToCompare = document.querySelectorAll('.flipped i');
-    const compareValueCard1 = valueToCompare[0].getAttribute('class');
-    const compareValueCard2 = valueToCompare[1].getAttribute('class');
-    if (compareValueCard1 == compareValueCard2) { // This should become a function that executes only when flipping card 3d animation ends
-      card1.addEventListener('animationend', rightAnswer);
-      card2.addEventListener('animationend', rightAnswer);
+    const VALUE_TO_COMPARE = document.querySelectorAll('.flipped i');
+    const COMPARE_VALUE_CARD1 = VALUE_TO_COMPARE[0].getAttribute('class');
+    const COMPARE_VALUE_CARD2 = VALUE_TO_COMPARE[1].getAttribute('class');
+    if (COMPARE_VALUE_CARD1 == COMPARE_VALUE_CARD2) {
+      CARD1.addEventListener('animationend', rightAnswer);
+      CARD2.addEventListener('animationend', rightAnswer);
 
       setTimeout( function() {
-        card1.classList.add('right');
-        card2.classList.add('right');
+        CARD1.classList.add('right');
+        CARD2.classList.add('right');
       }, 1000);
     } else {
 
-      card1.addEventListener('animationend', wrongAnswer);
-      card2.addEventListener('animationend', wrongAnswer);
+      CARD1.addEventListener('animationend', wrongAnswer);
+      CARD2.addEventListener('animationend', wrongAnswer);
       setTimeout( function() {
-        card1.classList.add('wrong');
-        card2.classList.add('wrong');
+        CARD1.classList.add('wrong');
+        CARD2.classList.add('wrong');
       }, 1000)
     }
   }
@@ -207,8 +196,8 @@ function checkCards() {
 
 // Everything that should happen when clicking a card
 function cardClick() {
-  let openCards = document.querySelectorAll('.flipped');
-  if  (openCards.length < 2 ) {
+  let OPEN_CARDS = document.querySelectorAll('.flipped');
+  if  (OPEN_CARDS.length < 2 ) {
     flipCard(this);
     checkCards();
   }
@@ -243,17 +232,17 @@ function shuffleDeck() {
   // uncomment to apply background to shuffled decks
   // shuffleArray(pairs);
   // A loop to set the changeable values for the cards after each shuffle
-  for (let i=0; i < cardValue.length; i++) {
+  for (let i=0; i < CARD_VALUE.length; i++) {
     // uncomment to apply background to shuffled decks
     // cardValue[i].style.backgroundColor = pairs[i];
     let elementi = document.createElement("I");
     elementi.className = symbols[i];
     // make sure every card.front has only one child
     // code from https://stackoverflow.com/questions/3955229/remove-all-child-elements-of-a-dom-node-in-javascript?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa
-    while (cardValue[i].firstChild) {
-      cardValue[i].removeChild(cardValue[i].firstChild);
+    while (CARD_VALUE[i].firstChild) {
+      CARD_VALUE[i].removeChild(CARD_VALUE[i].firstChild);
     }
-    cardValue[i].appendChild(elementi);
+    CARD_VALUE[i].appendChild(elementi);
   }
 }
 
@@ -267,8 +256,8 @@ function rightAnswer() {
   this.classList.remove('right', 'flipped');
   this.removeEventListener('animationend', rightAnswer);
   // checks if all cards are gone and if they are it shows the win modal as the game is won
-  const hiddenCards = document.querySelectorAll('.cards .hidden');
-  if (hiddenCards.length == cards.length) {
+  const HIDDEN_CARDS = document.querySelectorAll('.cards .hidden');
+  if (HIDDEN_CARDS.length == CARDS.length) {
     stopTimer();
     showModal();
   }
@@ -286,42 +275,42 @@ function wrongAnswer() {
 
 // Everything that should happen when starting the game
 function startGame() {
-  const modal = document.querySelector('.start-game-modal');
-  modal.style.display = "none";
+  const MODAL = document.querySelector('.start-game-modal');
+  MODAL.style.display = "none";
   restartGame();
   shuffleDeck();
   addGame();
   startTimer();
   // set click events to all cards
-  for (let card of cards) {
+  for (let card of CARDS) {
     card.addEventListener('click', cardClick);
   }
-  startGameButton.classList.add('hidden');
-  restartButton.classList.remove('hidden');
+  START_GAME_BUTTON.classList.add('hidden');
+  RESTART_BUTTON.classList.remove('hidden');
 }
 
 // Everything that should happen when restarting a game
 function restartGame() {
   // Turn all cards back if there are any
-  const openCards = document.querySelectorAll('.flipped');
-  if (openCards.length > 0) {
-    for (let card of openCards) {
+  const OPEN_CARDS = document.querySelectorAll('.flipped');
+  if (OPEN_CARDS.length > 0) {
+    for (let card of OPEN_CARDS) {
       flipCard(card);
     }
   }
 
   // show any hidden cards
-  const hiddenCards = document.querySelectorAll('.cards .hidden');
-  if (hiddenCards.length > 0) {
-    for (let card of hiddenCards) {
+  const HIDDEN_CARDS = document.querySelectorAll('.cards .hidden');
+  if (HIDDEN_CARDS.length > 0) {
+    for (let card of HIDDEN_CARDS) {
       card.classList.remove('hidden');
     }
   }
 
   // show any star hidden styles
-  const hiddenStars = document.querySelectorAll('.star-rating .hidden');
-  if (hiddenStars.length > 0) {
-    for (let star of hiddenStars) {
+  const HIDDEN_STARS = document.querySelectorAll('.star-rating .hidden');
+  if (HIDDEN_STARS.length > 0) {
+    for (let star of HIDDEN_STARS) {
       star.classList.add('star');
       star.classList.remove('hidden');
     }
@@ -334,7 +323,7 @@ function restartGame() {
 
   // restart moves
   moves = 0
-  moveCounter.innerHTML = moves;
+  MOVE_COUNTER.innerHTML = moves;
   checkStars();
   // restart startTimer
   stopTimer(timerCounter);
@@ -342,13 +331,7 @@ function restartGame() {
 }
 
 function playAgain() {
-  const modal = document.querySelector('.win-game-modal');
-  modal.style.display = "none";
+  const MODAL = document.querySelector('.win-game-modal');
+  MODAL.style.display = "none";
   restartGame();
 }
-
-//TODO pause button?
-// Stop timer when game is Won
-// Return time played in hours minute and seconds - you won 3 stars and played for 20 minutes and 3 seconds!
-// Add IE 11 support
-// Check ff

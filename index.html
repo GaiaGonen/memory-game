@@ -3,7 +3,7 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
-  <link rel="stylesheet"  type="text/css" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
 </head>
@@ -19,15 +19,10 @@
       <li class="second-star star">★</li>
       <li class="third-star star">★</li>
     </ul>
-    <button class="restart-game" class="hidden" type="button" onclick="restartGame();">Restart</button>
-    <!--TODO add user interaction to change number of cards,
-    style of cards-->
+    <button class="restart-game-button" class="hidden" type="button" onclick="restartGame();">Restart</button>
   </div>
   <div class="game-board">
     <ol class="cards">
-      <!-- instead of changing the class for each li object
-      create two figure (?) elements that one is classed .back and one .front
-      maybe a div wrapping the figures inside the card is needed? a card. -->
       <li class="container">
         <div class="card">
           <figure class="front"></figure>
@@ -126,17 +121,17 @@
       </li>
     </ol>
   </div>
-  <div class="start-game-modal">
-    <div class="modal-content">
-      <button class="start-game" type="button" onclick="startGame();">Start Game</button>
+  <div class="start-game-modal modal">
+    <div class="start-modal-content modal-content">
+      <button class="start-game-button" type="button" onclick="startGame();">Start Game</button>
     </div>
   </div>
-  <div class="win-game-modal">
-    <div class="modal-content">
-      <h1>You Won</h1>
+  <div class="win-game-modal modal">
+    <div class="win-modal-content modal-content">
+      <h1 class="modal-heading">You Won</h1>
       <p class="stars-num"> </p>
       <p class="time-played"> </p>
-      <button class="restart-after-win" type="button" onclick="playAgain()">Play Again!</button>
+      <button class="restart-after-win-button" type="button" onclick="playAgain()">Play Again!</button>
     </div>
   </div>
 </body>
