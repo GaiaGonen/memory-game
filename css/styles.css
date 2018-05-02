@@ -200,6 +200,7 @@ mismatch animation is playing */
   padding-top: 30vh;
 }
 
+/* TODO make one style for modals */
 #start-game-modal {
   display: block;
   position: fixed;
@@ -216,11 +217,13 @@ mismatch animation is playing */
 
 
 .modal-content {
-  background-color: white;
+  background-color: rgb(9,9,9);
+  background-color: rgba(255,255,255,0.85);
   max-width: 50%;
   margin: auto;
-  padding: 40px 0;
+  padding: 10px 0;
   text-align: center;
+  border-radius: 20px;
 }
 
 /* TODO change selectors to indicate modal  */

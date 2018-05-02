@@ -120,7 +120,11 @@ function showModal() {
   const modal = document.getElementById('win-game-modal');
   const starsSpan = document.querySelector('.stars-num');
   const timePlayed = document.querySelector('.time-played');
-  starsSpan.innerHTML = stars.length;
+  if (stars.length > 0) {
+    starsSpan.innerHTML = 'You got ' + stars.length + ' stars!';
+  } else {
+    starsSpan.innerHTML = 'You got no stars :(';
+  }
   timePlayed.innerHTML = getTimeString();
   modal.style.display = "block";
 }
