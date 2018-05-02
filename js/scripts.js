@@ -5,6 +5,7 @@
 //---------------------------------------------------
 
 // TODO can all of those be inserted only where they are really beeded?
+// TODO make const big letters
 const cards = document.querySelectorAll('.card');
 
 const timer = document.getElementById('timer');
@@ -27,15 +28,20 @@ let games = 0;
 
 let timerCounter = null;
 
+// Declared as globals so you can pull the time easly in other functions
+let secs = 0;
+let mins = 0;
+let hrs = 0;
+
 //---------------------------------------------------
 // General Functions
 //---------------------------------------------------
 
 function startTimer() {
   stopTimer();
-  let secs = 0;
-  let mins = 0;
-  let hrs = 0;
+  secs = 0;
+  mins = 0;
+  hrs = 0;
   let displaySecs = '0' + secs, displayMins = '0' + mins, displayHrs = '0' + hrs;
   timer.innerHTML = displayHrs + ':' + displayMins + ':' + displaySecs;
   timerCounter = setInterval( function() {
@@ -87,11 +93,35 @@ function shuffleArray(array) {
   }
 }
 
+function getTimeString() {
+  let returnTimeString = 'You played for ';
+  if (hrs > 0 && mins > 0 && secs > 0) {
+    returnTimeString += hrs + ' hours, ' + mins + ' mins and ' + secs + ' seconds.';
+  } else if (hrs == 0 && mins > 0 && secs > 0) {
+    returnTimeString += mins + ' minutes and ' + secs + ' seconds.';
+  } else if (hrs == 0 && mins == 0 && secs > 0) {
+    returnTimeString += secs + ' seconds.';
+  } else if (hrs > 0 && mins == 0 && secs > 0) {
+    returnTimeString += hrs + ' hours and ' + secs + ' seconds.';
+  } else if (hrs > 0 && mins > 0 && secs == 0) {
+    returnTimeString += hrs + ' hours and ' + mins + ' minutes.';
+  } else if (hrs > 0 && mins == 0 && secs == 0) {
+    returnTimeString += hrs + ' hours.';
+  } else if (hrs == 0 && mins > 0 && secs > 0) {
+    returnTimeString += mins + ' minutes and ' + secs + ' seconds.';
+  } else if (hrs == 0 && mins > 0 && secs == 0) {
+    returnTimeString += mins + ' minutes.';
+  }
+  return returnTimeString;
+}
+
 function showModal() {
   const stars = document.querySelectorAll('.star');
   const modal = document.getElementById('win-game-modal');
   const starsSpan = document.querySelector('.stars-num');
+  const timePlayed = document.querySelector('.time-played');
   starsSpan.innerHTML = stars.length;
+  timePlayed.innerHTML = getTimeString();
   modal.style.display = "block";
 }
 
