@@ -18,8 +18,6 @@ const START_GAME_BUTTON = document.querySelector('.start-game-button');
 
 const GAME_COUNTER = document.querySelector('.num-of-games');
 
-const STAR_RATING = document.querySelector('.star-rating')
-
 let moves = 0;
 
 let games = 0;
@@ -95,22 +93,22 @@ function getTimeString() {
   let returnTimeString = 'You played for ';
   if (hrs > 0 && mins > 0 && secs > 0) {
     returnTimeString += hrs + ' hours, ' + mins + ' mins and ' + secs + ' seconds.';
-  } else if (hrs == 0 && mins > 0 && secs > 0) {
+  } else if (hrs === 0 && mins > 0 && secs > 0) {
     returnTimeString += mins + ' minutes and ' + secs + ' seconds.';
-  } else if (hrs == 0 && mins == 0 && secs > 0) {
+  } else if (hrs === 0 && mins === 0 && secs > 0) {
     returnTimeString += secs + ' seconds.';
-  } else if (hrs > 0 && mins == 0 && secs > 0) {
+  } else if (hrs > 0 && mins === 0 && secs > 0) {
     returnTimeString += hrs + ' hours and ' + secs + ' seconds.';
-  } else if (hrs > 0 && mins > 0 && secs == 0) {
+  } else if (hrs > 0 && mins > 0 && secs === 0) {
     returnTimeString += hrs + ' hours and ' + mins + ' minutes.';
-  } else if (hrs > 0 && mins == 0 && secs == 0) {
+  } else if (hrs > 0 && mins === 0 && secs === 0) {
     returnTimeString += hrs + ' hours.';
-  } else if (hrs == 0 && mins > 0 && secs > 0) {
+  } else if (hrs === 0 && mins > 0 && secs > 0) {
     returnTimeString += mins + ' minutes and ' + secs + ' seconds.';
-  } else if (hrs == 0 && mins > 0 && secs == 0) {
+  } else if (hrs === 0 && mins > 0 && secs === 0) {
     returnTimeString += mins + ' minutes.';
   } else {
-    returnTimeString = 'You did not play at all :/'
+    returnTimeString = 'You did not play at all :/';
   }
   return returnTimeString;
 }
@@ -145,7 +143,6 @@ function addGame() {
 }
 
 function checkStars() {
-  const STARS = document.querySelectorAll('.star')
   if (moves > 25 && moves <= 50) {
     document.querySelector('.first-star').classList.replace('star', 'hidden');
   } else if (moves > 60 && moves <= 75) {
@@ -189,7 +186,7 @@ function checkCards() {
       setTimeout( function() {
         CARD1.classList.add('wrong');
         CARD2.classList.add('wrong');
-      }, 1000)
+      }, 1000);
     }
   }
 }
@@ -322,7 +319,7 @@ function restartGame() {
   shuffleDeck();
 
   // restart moves
-  moves = 0
+  moves = 0;
   MOVE_COUNTER.innerHTML = moves;
   checkStars();
   // restart startTimer
