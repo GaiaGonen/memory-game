@@ -200,8 +200,8 @@ function cardClick() {
   if  (OPEN_CARDS.length < 2 ) {
     flipCard(this);
     checkCards();
+    addMove();
   }
-  addMove();
 }
 
 function shuffleDeck() {
