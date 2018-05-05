@@ -1,6 +1,9 @@
 # Gaia's Memory Game
 
 This is a memory game made for Udacity's Nanodegree program.
+A web app memory game in vanilla JS.
+
+#### This game does not work on IE11 and below.
 
 ### Installing
 
