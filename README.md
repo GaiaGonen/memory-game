@@ -16,5 +16,4 @@ No prerequisites needed. No frameworks used.
 
 ### Credits where credit is due:
 
-Used the Durstenfeld shuffle for EMACS6
-Used bade modal code from W3Schhol
+Used the Durstenfeld shuffle for EMACS6 and basic modal code from W3School
