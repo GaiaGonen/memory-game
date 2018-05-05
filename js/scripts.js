@@ -118,11 +118,7 @@ function showModal() {
   const MODAL = document.querySelector('.win-game-modal');
   const STARS_SPAN = document.querySelector('.stars-num');
   const TIME_PLAYED = document.querySelector('.time-played');
-  if (STARS.length > 0) {
-    STARS_SPAN.innerHTML = 'You got ' + STARS.length + ' stars!';
-  } else {
-    STARS_SPAN.innerHTML = 'You got no stars :(';
-  }
+  STARS_SPAN.innerHTML = 'You got ' + STARS.length + ' stars!';
   TIME_PLAYED.innerHTML = getTimeString();
   MODAL.style.display = "block";
 }
@@ -147,8 +143,6 @@ function checkStars() {
     document.querySelector('.first-star').classList.replace('star', 'hidden');
   } else if (moves > 60 && moves <= 75) {
     document.querySelector('.second-star').classList.replace('star', 'hidden');
-  } else if (moves > 75) {
-    document.querySelector('.third-star').classList.replace('star', 'hidden');
   }
 }
 
