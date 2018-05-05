@@ -188,7 +188,9 @@ function checkCards() {
 // Everything that should happen when clicking a card
 function cardClick() {
   let OPEN_CARDS = document.querySelectorAll('.flipped');
-  if  (OPEN_CARDS.length < 2 ) {
+  // do something to the card only when it's not already flipped and less than 2
+  // cards overall are flipped.
+  if  (OPEN_CARDS.length < 2  && !(this.classList.contains("flipped"))) {
     flipCard(this);
     checkCards();
     addMove();

@@ -218,13 +218,11 @@ mismatch animation is playing */
   border-radius: 20px;
 }
 
-/* TODO change selectors to indicate modal  */
 .start-game-button {
   width: 80%;
   height: 100%;
 }
 
-/* TODO change this selector */
 .modal-heading {
   color: #FFF;
   background-color: #000;
