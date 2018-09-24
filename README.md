@@ -8,7 +8,7 @@ A web app memory game in vanilla JS.
 ### Installing
 
 No installiation required - view the live project here:
- https://gaiagong.github.io/memory-game/
+ https://gaiagonen.github.io/memory-game/
  
 ### Prerequisites
 
